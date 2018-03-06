@@ -45,7 +45,9 @@ class Controller_Nebraska extends Controller
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         if(isset($username)){
+          $layout->set_safe('username',$username);
           $nav->set_safe('username',$username);
+          $comment->set_safe('username',$username);
         }
         $footer = View::forge('nebraska/footer');
         $layout->nav = Response::forge($nav);
@@ -61,6 +63,8 @@ class Controller_Nebraska extends Controller
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         if(isset($username)){
+          $layout->set_safe('username',$username);
+          $comment->set_safe('username',$username);
           $nav->set_safe('username',$username);
         }
         $footer = View::forge('nebraska/footer');
@@ -77,7 +81,9 @@ class Controller_Nebraska extends Controller
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         if(isset($username)){
+            $layout->set_safe('username',$username);
           $nav->set_safe('username',$username);
+          $comment->set_safe('username',$username);
         }
         $footer = View::forge('nebraska/footer');
 
@@ -106,8 +112,8 @@ class Controller_Nebraska extends Controller
 
         $username = Input::post('username');
         $password = Input::post('password');
-        if(($username === 'ct310' && md5($password) === '48f2f942692b08ec9de1ef9ada5230a3') ||
-            ($username === 'Luke' && $password === 'Ewan') ||
+        if(($username === 'ct310' && md5($password) === 'a6cebbf02cc311177c569525a0f119d7') ||
+            ($username === 'Luke' && md5($password) === 'c9fc92fa9c0e7ecd192f8b84b826d422') ||
 	     ($username == 'Logan' && md5($password) == 'c00d0edbdd588b4bfbc900e663dcd549')) {
             Session::create();
             Session::set('username', $username);
