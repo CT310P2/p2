@@ -5,14 +5,14 @@
         <h1 class="display-4">Feedback?</h1>
         <p class="lead">Please feel free to add any thoughts you have about this wonderful attraction!</p>
         <hr class="my-4">
-        <div class="form">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <button class="btn btn-outline-danger my-2 my-sm-0" type="button" id="add">Add Comment</button>
-            </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>
-        </div>
+		<?php if(isset($_POST) && !empty($_POST)): ?>
+			<?=$_POST['test']; ?>
+		<?php else: ?>
+			<form method="post">
+				<textarea name="test"></textarea>
+				<input type="submit" value="GO!" />
+			</form>
+		<?php endif; ?>
       </div>
     </div>
   </div>
