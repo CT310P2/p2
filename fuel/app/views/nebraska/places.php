@@ -32,7 +32,7 @@
           <img class="card-img-top" src="./../img/chimney.jpg" alt="Card image cap" height="180" width="255">
           <div class="card-body">
             <h5 class="card-title">Chimney Rock</h5>
-            <p class="card-text">Blurb about Chimney Rock.</p>
+            <p class="card-text">Beautiful landscape also exists in Nebraska, take a look!</p>
           </div>
           <div class="card-footer">
             <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/chimney'); ?>" target="_blank" class="btn btn-success">Learn More</a></small>
