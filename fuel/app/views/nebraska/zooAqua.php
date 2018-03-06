@@ -79,7 +79,6 @@
     </div>
 </div>
 
-<br /><br /><br /><br />
 <div class="container">
   <?= $comment; ?>
 </div>
