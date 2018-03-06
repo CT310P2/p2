@@ -9,11 +9,19 @@
 			<?=$_POST['test']; ?>
 		<?php else: ?>
 			<form method="post">
-				<textarea name="test"></textarea>
-				<input type="submit" value="GO!" />
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" value="submit" id="add">Add Comment</button>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" name="test"></textarea>
+                </div>
 			</form>
 		<?php endif; ?>
       </div>
     </div>
   </div>
 </div>
+<!--<div class="form">
+
+</div>-->
+
