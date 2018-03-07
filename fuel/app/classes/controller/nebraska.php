@@ -38,6 +38,21 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
+    public function action_credits()
+    {
+        $session = Session::instance();
+        $layout = View::forge('nebraska/credits');
+        $nav = View::forge('nebraska/nav');
+        $username = $session->get('username');
+        if(isset($username)){
+          $nav->set_safe('username',$username);
+        }
+        $footer = View::forge('nebraska/footer');
+
+        $layout->nav = Response::forge($nav);
+        $layout->footer = Response::forge($footer);
+        return $layout;
+    }
     public function action_carhenge(){
         $session = Session::instance();
         $layout = View::forge('nebraska/carhenge');
@@ -114,12 +129,11 @@ class Controller_Nebraska extends Controller
         $password = Input::post('password');
         if(($username === 'ct310' && md5($password) === 'a6cebbf02cc311177c569525a0f119d7') ||
             ($username === 'Luke' && md5($password) === 'c9fc92fa9c0e7ecd192f8b84b826d422') ||
-	     ($username == 'Logan' && md5($password) == 'c00d0edbdd588b4bfbc900e663dcd549')) {
+	     ($username === 'Logan' && md5($password) === 'c00d0edbdd588b4bfbc900e663dcd549')) {
             Session::create();
             Session::set('username', $username);
             Session::set('userid', 12345);
             $content = View::forge('nebraska/success');
-
             $status = 'success';
             $content -> set_safe('status',$status);
             return $content;

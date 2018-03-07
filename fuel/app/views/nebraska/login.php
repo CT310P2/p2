@@ -21,12 +21,12 @@
         <div class="row">
             <div class="col text-center">
                 <div class="card text-center border-danger w-50 mx-auto">
-                    <div class="card-header  text-danger">
+                    <div class="card-header text-danger">
                         <h2>It appears you've already signed in!</h2>
                     </div>
                     <div class="card-body">
                         <h4><a class="btn btn-danger" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Sign in with a different account</a></h4>
-                        <h4><button class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/login'); ?>" >Or, logout here</button></h4>
+                        <h4><a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Or, Logout</a></h4>
                     </div>
                     <div class="card-footer text-muted">
                     </div>
