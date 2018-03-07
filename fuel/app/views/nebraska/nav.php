@@ -23,7 +23,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="<?=Uri::create('index.php/nebraska/credits'); ?>" target="_blank">Credits</a>
       </li>
     </ul>
     <div class="my-2 my-lg-0">
