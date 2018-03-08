@@ -23,8 +23,8 @@
               <nav>
                   <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                       <button class="nav-item nav-link active btn btn-outline-danger my-2 my-sm-0" id="nav-home-tab" data-toggle="tab" href="#PR" role="tab" aria-controls="nav-home" aria-selected="true">Photos</button>
-                      <button class="nav-item nav-link btn btn-outline-danger my-2 my-sm-0" id="nav-profile-tab" data-toggle="tab" href="#XC" role="tab" aria-controls="nav-profile" aria-selected="false">Content</button>
-                      <button class="nav-item nav-link btn btn-outline-danger my-2 my-sm-0" id="nav-contact-tab" data-toggle="tab" href="#RA" role="tab" aria-controls="nav-contact" aria-selected="false">Interesting Facts</button>
+                      <button class="nav-item nav-link btn btn-outline-danger my-2 my-sm-0" id="nav-profile-tab" data-toggle="tab" href="#XC" role="tab" aria-controls="nav-profile" aria-selected="false">More Photos</button>
+                      <button class="nav-item nav-link btn btn-outline-danger my-2 my-sm-0" id="nav-contact-tab" data-toggle="tab" href="#RA" role="tab" aria-controls="nav-contact" aria-selected="false">Even More Photos</button>
                   </div>
               </nav>
             </div>
@@ -35,28 +35,31 @@
                   <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="PR" role="tabpanel" aria-labelledby="nav-home-tab">
                           <h4 class="card-title">Home Page</h4>
-                          <p>&#9656; The good life: http://theinternationalpageants.blogspot.com/2014/08/nebraskathe-good-life.html<br />
-                              &#9656; Carhenge: https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares <br />
-                              &#9656; Eagle Rock: http://pixdaus.com/oregon-trail-near-eagle-rock-and-historical-wagons-scottsblu/items/view/568921/ <br />
-                              &#9656; Car Henge in Card:http://www.thetravelerstree.com/2012/01/americana-part-v-carhenge-alliance.html <br />
-                              &#9656; Henry Doorly Aquarium and Zoo in Card: https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium <br />
-                              &#9656; Chimney Rock in Card: https://visitnebraska.com/stays/chimney-rock-pioneer-crossing <br /></p>
+                          <p>&#9656; <a href="http://theinternationalpageants.blogspot.com/2014/08/nebraskathe-good-life.html" target="_blank">The good life</a><br />
+                              &#9656; <a href="https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares">Carhenge</a><br />
+                              &#9656; <a href="http://pixdaus.com/oregon-trail-near-eagle-rock-and-historical-wagons-scottsblu/items/view/568921/">Eagle Rock</a><br />
+                              &#9656; <a href="http://www.thetravelerstree.com/2012/01/americana-part-v-carhenge-alliance.html">Car Henge in Card</a> <br />
+                              &#9656; <a href=" https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium">Henry Doorly Aquarium and Zoo in Card</a><br />
+                              &#9656; <a href="https://visitnebraska.com/stays/chimney-rock-pioneer-crossing">Chimney Rock in Card</a></p>
                       </div>
                       <div class="tab-pane fade" id="XC" role="tabpanel" aria-labelledby="nav-profile-tab">
                           <h4 class="card-title">Carhenge | Chimney Rock</h4>
-                          <p>&#9656; Carhenge: https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares <br />
-                              &#9656; Chimney Rock Page: https://www.trekearth.com/gallery/North_America/United_States/Midwest/Nebraska/Bayard/photo229819.htm <br /></p>
+                          <p>&#9656; <a href=https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares">Carhenge</a>   <br />
+                              &#9656; <a href="https://www.trekearth.com/gallery/North_America/United_States/Midwest/Nebraska/Bayard/photo229819.html">Chimney Rock Page</a></p>
                       </div>
                       <div class="tab-pane fade" id="RA" role="tabpanel" aria-labelledby="nav-contact-tab">
                           <h4 class="card-title">Henry Doorly Zoo and Aquarium, top to bottom, left to right</h4>
-                          <p>&#9656; <br />
-                              &#9656; The original Native American name roughly translated to "elk penis", and variations on that were considered when settlers were establishing a permanent name for it.<br /></p>
+                          <p>&#9656; <a href="https://www.visitomaha.com/things-to-do/omaha-zoo/">Sunset</a><br />
+                              &#9656; <a href="https://www.reddit.com/r/Omaha/comments/3ty8oe/the_desert_dome_henry_doorly_zoo_and_aquarium/">In the Dome</a><br />
+                              &#9656; <a href="http://siouxcityjournal.com/going-deep-into-the-jungle-at-omaha-s-henry-doorly/article_03bb5da6-47b6-5220-becb-b3667aa16f54.html">Jellies</a><br />
+                              &#9656; <a href="https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium">Outside</a><br />
+                              &#9656; <a href="http://www.nonpareilonline.com/news/tripadvisor-website-ranks-omaha-zoo-no-in-country/article_f886eb24-d9db-59ec-bc53-36c658f14987.html">Fish</a><br />
+                              &#9656; <a href=" http://theomahanewspapers.com/tag/henry-doorly-zoo-aquarium/">Fish 2</a></p>
                       </div>
                   </div>
               </div>
             </div>
             <div class="card-footer text-muted">
-              2 days ago
             </div>
           </div>
         </div>

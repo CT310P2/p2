@@ -15,7 +15,7 @@
             <p class="card-text">Have you ever wanted to visit the famous Stonehenge but it's too far away? This is the perfect solution!</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" target="_blank" class="btn btn-warning">Learn More</a></small>
+            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" class="btn btn-warning">Learn More</a></small>
           </div>
         </div>
         <div class="card border-primary">
@@ -25,7 +25,7 @@
             <p class="card-text">One of the world's best zoo's with some of the largest, wildest, exhibits!</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/zooAqua'); ?>" target="_blank" class="btn btn-primary">Learn More</a></small>
+            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/zooAqua'); ?>" class="btn btn-primary">Learn More</a></small>
           </div>
         </div>
         <div class="card border-success">
@@ -35,7 +35,7 @@
             <p class="card-text">Beautiful landscape also exists in Nebraska, take a look!</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/chimney'); ?>" target="_blank" class="btn btn-success">Learn More</a></small>
+            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/chimney'); ?>" class="btn btn-success">Learn More</a></small>
           </div>
         </div>
       </div>

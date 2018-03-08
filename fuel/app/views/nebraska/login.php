@@ -26,7 +26,6 @@
                     </div>
                     <div class="card-body">
                         <h4><a class="btn btn-danger" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Sign in with a different account</a></h4>
-                        <h4><a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Or, Logout</a></h4>
                     </div>
                     <div class="card-footer text-muted">
                     </div>
