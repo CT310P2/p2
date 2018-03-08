@@ -29,7 +29,7 @@
               </nav>
             </div>
             <div class="card-body">
-              <h5 class="card-title">Special thanks to all those who intributed to this site!</h5>
+              <h5 class="card-title">Special thanks to all those who contributed to this site!</h5>
 
               <div class="card-body">
                   <div class="tab-content" id="nav-tabContent">
