@@ -29,23 +29,23 @@
               </nav>
             </div>
             <div class="card-body">
-              <h5 class="card-title">Special thanks to all those who intributed to this site!</h5>
+              <h5 class="card-title">Special thanks to all those who contributed to this site!</h5>
 
               <div class="card-body">
                   <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="PR" role="tabpanel" aria-labelledby="nav-home-tab">
                           <h4 class="card-title">Home Page</h4>
-                          <p>&#9656; The good life: http://theinternationalpageants.blogspot.com/2014/08/nebraskathe-good-life.html<br />
-                              &#9656; Carhenge: https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares <br />
-                              &#9656; Eagle Rock: http://pixdaus.com/oregon-trail-near-eagle-rock-and-historical-wagons-scottsblu/items/view/568921/ <br />
-                              &#9656; Car Henge in Card:http://www.thetravelerstree.com/2012/01/americana-part-v-carhenge-alliance.html <br />
-                              &#9656; Henry Doorly Aquarium and Zoo in Card: https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium <br />
-                              &#9656; Chimney Rock in Card: https://visitnebraska.com/stays/chimney-rock-pioneer-crossing <br /></p>
+                          <p>&#9656; The good life: <a href='http://theinternationalpageants.blogspot.com/2014/08/nebraskathe-good-life.html' target = "_blank">http://theinternationalpageants.blogspot.com/2014/08/nebraskathe-good-life.html  </a> <br />
+                              &#9656; Carhenge: <a href='https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares' target = "_blank">https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares </a><br />
+                              &#9656; Eagle Rock: <a href='http://pixdaus.com/oregon-trail-near-eagle-rock-and-historical-wagons-scottsblu/items/view/568921' target ="_blank">http://pixdaus.com/oregon-trail-near-eagle-rock-and-historical-wagons-scottsblu/items/view/568921'</a>/ <br />
+                              &#9656; Car Henge in Card: <a href='http://www.thetravelerstree.com/2012/01/americana-part-v-carhenge-alliance.html' target="_blank"> http://www.thetravelerstree.com/2012/01/americana-part-v-carhenge-alliance.html </a><br />
+                              &#9656; Henry Doorly Aquarium and Zoo in Card: <a href='https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium' target="_blank">https://roadtrippers.com/us/omaha-ne/attractions/omahas-henry-doorly-zoo-aquarium</a> <br />
+                              &#9656; Chimney Rock in Card: <a href ='https://visitnebraska.com/stays/chimney-rock-pioneer-crossing' target="_blank"> https://visitnebraska.com/stays/chimney-rock-pioneer-crossing</a> <br /></p>
                       </div>
                       <div class="tab-pane fade" id="XC" role="tabpanel" aria-labelledby="nav-profile-tab">
                           <h4 class="card-title">Carhenge | Chimney Rock</h4>
-                          <p>&#9656; Carhenge: https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares <br />
-                              &#9656; Chimney Rock Page: https://www.trekearth.com/gallery/North_America/United_States/Midwest/Nebraska/Bayard/photo229819.htm <br /></p>
+                          <p>&#9656; Carhenge: <a href='https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares' target="_blank">https://www.npr.org/sections/thetwo-way/2017/08/10/541583064/as-eclipse-madness-sweeps-u-s-a-stonehenge-made-of-cars-prepares</a> <br />
+                              &#9656; Chimney Rock Page: <a href= 'https://www.trekearth.com/gallery/North_America/United_States/Midwest/Nebraska/Bayard/photo229819.htm' target="_blank">https://www.trekearth.com/gallery/North_America/United_States/Midwest/Nebraska/Bayard/photo229819.htm</a> <br /></p>
                       </div>
                       <div class="tab-pane fade" id="RA" role="tabpanel" aria-labelledby="nav-contact-tab">
                           <h4 class="card-title">Henry Doorly Zoo and Aquarium, top to bottom, left to right</h4>
