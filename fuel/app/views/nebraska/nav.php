@@ -13,7 +13,7 @@
         <a class="nav-link" href="<?=Uri::create('index.php/nebraska/about'); ?>" >About Us</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?=Uri::create('index.php/nebraska'); ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Attractions
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
