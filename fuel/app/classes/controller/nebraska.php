@@ -2,8 +2,10 @@
 
 use Model\Nebraska;
 
+
 class Controller_Nebraska extends Controller
 {
+
     public function action_index()
     {
         $session = Session::instance();
@@ -112,9 +114,10 @@ class Controller_Nebraska extends Controller
         $layout = View::forge('nebraska/login');
         $nav = View::forge('nebraska/nav');
         $username = $session->get('username');
-        if(isset($username)){
+        if(isset($username) && isset($password)){
           $nav->set_safe('username',$username);
           $layout->set_safe('username',$username);
+          $layout->set_safe('password',$password);
         }
         $footer = View::forge('nebraska/footer');
 
@@ -124,12 +127,13 @@ class Controller_Nebraska extends Controller
         return $layout;
     }
     public function action_check(){
+      require_once 'user.php';
+      $user_login = new USER();
 
         $username = Input::post('username');
         $password = Input::post('password');
-        if(($username === 'ct310' && md5($password) === 'a6cebbf02cc311177c569525a0f119d7') ||
-            ($username === 'Luke' && md5($password) === 'c9fc92fa9c0e7ecd192f8b84b826d422') ||
-	     ($username === 'Logan' && md5($password) === 'c00d0edbdd588b4bfbc900e663dcd549')) {
+        //userName and userPass are col names in db
+        if($user_login->login($username,$password)) { //tries to sign the user in, and send them to home page
             Session::create();
             Session::set('username', $username);
             Session::set('userid', 12345);
@@ -137,7 +141,8 @@ class Controller_Nebraska extends Controller
             $status = 'success';
             $content -> set_safe('status',$status);
             return $content;
-        } else {
+          }
+        else {
             $content = View::forge('nebraska/loginError');
             $nav = View::forge('nebraska/nav');
             $footer = View::forge('nebraska/footer');
