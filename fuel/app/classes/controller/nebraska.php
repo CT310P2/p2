@@ -12,7 +12,7 @@ class Controller_Nebraska extends Controller
         $layout = View::forge('nebraska/index');
         $nav = View::forge('nebraska/nav');
         $username = $session->get('username');
-        if(isset($username)){
+        if(isset($username)){ 
           $nav->set_safe('username',$username);
         }
         $carosel = View::forge('nebraska/carosel');
