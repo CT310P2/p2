@@ -33,19 +33,14 @@ class USER
 
 
  //function that takes user info, and executes it. This will put info in the user table! Makes a new user in db
- /*public function register($first,$last,$uname,$email,$upass,$code)
- {
-  try
-  {
-   $password = md5($upass);
-   $stmt = $this->conn->prepare("INSERT INTO tbl_users(fName,lName,userName,userEmail,userPass,tokenCode)
-                                                VALUES(:fN, :lN, :user_name, :user_mail, :user_pass, :active_code)");
-   $stmt->bindparam(":fN",$first);
-   $stmt->bindparam(":lN",$last);
-   $stmt->bindparam(":user_name",$uname);
-   $stmt->bindparam(":user_mail",$email);
+ public function register($userName,$userPass,$admin){
+  try{
+   $password = md5($userPass);
+   $stmt = $this->conn->prepare("INSERT INTO users(userName,userPass,admin)
+                                                VALUES(:user_name, :user_pass, :ad)");
+   $stmt->bindparam(":user_name",$userName);
    $stmt->bindparam(":user_pass",$password);
-   $stmt->bindparam(":active_code",$code);
+   $stmt->bindparam(":ad",$admin);
    //once execute is called, then everything gets bound to e/o uN to uN and so on
    $stmt->execute();
    return $stmt;
@@ -54,13 +49,25 @@ class USER
   {
    echo $ex->getMessage();
   }
-}*/
+}
 
  /*The steps of printing results in PDO...
  1) prepare a query, and set it = to a var
  2) execute either using bound params(see above example) or array temp values
  3) set var = to fetch of that stmt
 */
+
+public function checkAdmin($username){
+    $stmt = $this->conn->prepare("SELECT * FROM users WHERE userName=:user_name");
+    $stmt->execute(array(":user_name"=>$username));
+    $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+    if($stmt->rowCount() == 1){
+        if($userRow['admin'] == 1){
+            return true;
+        }else { return false; }
+    }
+}
+
  //function that takes basic login info, and prepares execution by preparing from user tbl
  public function login($username,$password)
  {
@@ -75,10 +82,8 @@ class USER
 
    if($stmt->rowCount() == 1)
    {
-     if($userRow['userPass']==$password)
+     if($userRow['userPass']==md5($password))
      {
-
-
       /*$_SESSION['userSession'] = $userRow['userID'];
 	  $_SESSION['guest'] = false;*/
 	  //if the user info is all correct...
@@ -101,6 +106,7 @@ class USER
    echo $ex->getMessage();
   }
  }
+
 
  //checks if the userSession already exists (they're logged in already.)
  /*public function is_logged_in()
