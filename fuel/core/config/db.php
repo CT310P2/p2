@@ -50,31 +50,27 @@ return array(
 		'readonly'     => false,
 	),
 
-	/**
-	 * Base MySQLi config
-	 *
-
+/**
+ * Base MySQLi config
+ */	
 	'default' => array(
-		'type'        => 'mysqli',
-		'connection'  => array(
-			'dsn'        => '',
-			'hostname'   => '',
-			'username'   => null,
-			'password'   => null,
-			'database'   => '',
-			'persistent' => false,
-			'compress'   => false,
+		'type'           => 'mysqli',
+		'connection'     => array(
+			'hostname'       => 'localhost',
+			'port'           => '3306',
+			'database'       => 'ct310',
+			'username'       => 'ct310',
+			'password'       => 'ct310class',
+			'persistent'     => false,
+			'compress'       => false,
 		),
-		'identifier'   => '`',
-		'table_prefix' => '',
-		'charset'      => 'utf8',
-		'collation'    => false,
-		'enable_cache' => true,
-		'profiling'    => false,
-		'readonly'     => false,
+		'identifier'     => '`',
+		'table_prefix'   => '',
+		'charset'        => 'utf8',
+		'enable_cache'   => true,
+		'profiling'      => false,
+		'readonly'       => false,
 	),
-	 */
-
 	/**
 	 * Base Redis config
 	 */
