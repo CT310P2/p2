@@ -29,4 +29,7 @@ To fix this:
 * cd to ..../ct310
 * cp -TR ./fuel ../../ This should update the fuel folder in your home dir.
 
-
+## Files that need to be changed on merge:
+* success.php
+* welcome/index.php
+* logout.php
