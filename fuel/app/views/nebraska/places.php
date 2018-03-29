@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="card-footer text-muted">
-      <small class="text-muted" id="Info"><a href="#top">To Top</a></small>
+      <a type="button" class="btn btn-danger btn-lg btn-block" href="<?=Uri::create('index.php/nebraska/allDest'); ?>">All Destinations</a>
     </div>
   </div>
 </div>
