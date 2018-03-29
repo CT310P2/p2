@@ -28,7 +28,9 @@
     </ul>
     <div class="my-2 my-lg-0">
         <?php if(isset($username)) { ?>
-            <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button> <?php if($admin) { ?>
+<!--            <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button> <?php if($admin) { ?>
+              <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button> <?php } ?>-->
+            <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button> <?php if($admin == 0) { ?>
               <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button> <?php } ?>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Logout</a>
         <?php } else {?>
