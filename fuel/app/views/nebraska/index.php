@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -29,10 +28,6 @@
   <div class="container">
     <?= $footer; ?>
   </div>
-
-
-
-
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
