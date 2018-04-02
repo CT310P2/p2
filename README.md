@@ -33,3 +33,6 @@ To fix this:
 * success.php
 * welcome/index.php
 * logout.php
+
+mysql -u ewanlp -D ewanlp -h faure -p
+
