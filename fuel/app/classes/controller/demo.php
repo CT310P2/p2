@@ -3,6 +3,7 @@
  * Demo for CT310
  */
 use Model\Demo;
+
 /**
  * The Demo Controller.
  *
@@ -15,17 +16,17 @@ class Controller_Demo extends Controller
 	 */
 	public function action_index()
 	{
-		$layout = View::forge('demo/layoutfull');//loads template for page
+		$layout = View::forge('demo/layoutfull');
 
-		$content = View::forge('demo/index');//view folder, demo, view called index, loaded into memory
+		$content = View::forge('demo/index');
+        
+		$demos = Demo::find('all');
 
-		$demos = Demo::getAll();//model getting data for us, returns it back to controller
+		$content->set_safe('demos', $demos);
 
-		$content->set_safe('demos', $demos);//saving demo into content, with index (this is data)
+		$layout->content = Response::forge($content);
 
-		$layout->content = Response::forge($content);//view is being executed
-
-		return $layout;//sent to the user
+		return $layout;
 	}
 
 	//View a specific demo item
@@ -35,7 +36,7 @@ class Controller_Demo extends Controller
 
 		$content = View::forge('demo/view');
 
-		$demo = new Demo($id);//retrieving data from model!
+		$demo = Demo::find($id);
 
 		$content->set_safe('demo', $demo);
 
@@ -51,9 +52,10 @@ class Controller_Demo extends Controller
 
 		$content = View::forge('demo/addEdit');
 
-		$demo = new Demo($id);
+		$demo = Demo::find($id);
 
 		$content->set_safe('demo', $demo);
+		$content->set_safe('valid', true);
 
 		$layout->content = Response::forge($content);
 
@@ -62,18 +64,50 @@ class Controller_Demo extends Controller
 
 	public function post_addEdit($id = null)
 	{
-		$demo = new Demo($id);
-		$demo->id = $_POST['id'];
-		$demo->name = $_POST['name'];
-		$demo->save();
-		Response::redirect('index.php/demo/index');
+		$demo = Demo::find($id);
+		if(is_object($demo))
+			$addEdit = 'Edit';
+		else
+		{
+			$demo = new Demo();
+			$addEdit = 'Add';
+		}
+
+		//$demo->id = $_POST['id'];
+		//$demo->name = $_POST['name'];
+		$demo->setAll($_POST);
+
+		$valid = $demo->simpleValidate();
+		if($valid)
+		{
+			$demo->save();
+			Session::set_flash('flash', array('msg' => "Successfully $addEdit"."ed Demo!", 'type' => 'success'));
+			Response::redirect('demo/index');
+		}
+		else
+		{
+			$layout = View::forge('demo/layoutfull');
+
+			$content = View::forge('demo/addEdit');
+
+			$content->set_safe('demo', $demo);
+			$content->set_safe('valid', $valid);
+			$content->set_safe('errors', $demo->betterValidate());
+
+			$layout->content = Response::forge($content);
+
+			return $layout;
+		}
+
 	}
 
 	public function action_delete($id)
 	{
-		$demo = new Demo($id);
+		$demo = Demo::find($id);
+		$gone = $demo->__toString();
 		$demo->delete();
-		Response::redirect('index.php/demo/index');
+		Session::set_flash('flash', array('msg' => "Demo $gone Deleted!", 'type' => 'success'));
+		Response::redirect('demo/index');
 	}
 
 	public function action_404()

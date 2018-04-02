@@ -12,7 +12,6 @@ $result = DB::query($query)->execute();
 $result->as_array();
 $ar = $result[0];
 $length = count($result);
-
 for($i = 0; $i < $length; $i++) {
   $obj = $result[$i];
   $name = $obj['name'];
@@ -20,7 +19,8 @@ for($i = 0; $i < $length; $i++) {
   $imageName = $obj['imageName'];
   $overview = $obj['overview'];
   $history = $obj['history'];
-  $facts = $obj['facts']; ?>
+  $facts = $obj['facts']; 
+  $url = $obj['url']?>
 
   <div class="col-6">
     <div class="card-deck">
@@ -33,11 +33,10 @@ for($i = 0; $i < $length; $i++) {
           <p class="card-text"><?=$facts; ?></p>
         </div>
         <div class="card-footer">
-          <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" class="btn btn-danger">Learn More</a></small>
+          <small class="text-muted"><a href="<?=Uri::create($url); ?>" class="btn btn-danger">Learn More</a></small>
         </div>
       </div>
     </div>
   </div>
 <?php } ?>
 </div>
-

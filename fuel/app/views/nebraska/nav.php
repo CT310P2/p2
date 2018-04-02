@@ -30,6 +30,9 @@
         <?php if(isset($username)) { ?>
             <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button> <?php if($admin) { ?>
               <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button> <?php } ?>
+            <?php if($admin == 0) { ?>
+              <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/order'); ?>">Order Brochure</a>
+              <?php } ?>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Logout</a>
         <?php } else {?>
           <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#exampleModall"> Register </button>
@@ -49,7 +52,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="addDest">
+            <form method="POST" action="..">
                 <div class="modal-body">
                     <label for="user">Destination Info</label>
                     <input type="username" class="form-control" id="userr" placeholder="Destination Name" name="name">
@@ -92,6 +95,8 @@
                     <br />
                     <input type="password" class="form-control" id="pass" placeholder="Password" name="pass">
                     <br />
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                    <br />
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="admin">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
@@ -103,3 +108,5 @@
         </div>
     </div>
 </div>
+
+
