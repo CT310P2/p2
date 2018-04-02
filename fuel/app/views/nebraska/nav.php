@@ -52,7 +52,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="addDest">
+            <form method="POST" action="..">
                 <div class="modal-body">
                     <label for="user">Destination Info</label>
                     <input type="username" class="form-control" id="userr" placeholder="Destination Name" name="name">
@@ -94,6 +94,8 @@
                     <input type="username" class="form-control" id="user" placeholder="Username" name="user">
                     <br />
                     <input type="password" class="form-control" id="pass" placeholder="Password" name="pass">
+                    <br />
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                     <br />
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="admin">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>

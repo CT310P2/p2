@@ -12,7 +12,6 @@ $result = DB::query($query)->execute();
 $result->as_array();
 $ar = $result[0];
 $length = count($result);
-
 for($i = 0; $i < $length; $i++) {
   $obj = $result[$i];
   $name = $obj['name'];
@@ -20,16 +19,13 @@ for($i = 0; $i < $length; $i++) {
   $imageName = $obj['imageName'];
   $overview = $obj['overview'];
   $history = $obj['history'];
-  $facts = $obj['facts']; ?>
+  $facts = $obj['facts']; 
+  $url = $obj['url']?>
 
   <div class="col-6">
     <div class="card-deck">
       <div class="card border-danger text-center">
-<<<<<<< HEAD
-        <img class="card-img-top" src="<?=$image; ?>" alt="Card image cap" height="242" width="162">
-=======
         <img class="card-img-top" src=" ../../img/<?=$image; ?>" alt="Card image cap" height="242" width="162">
->>>>>>> ddf5a45d6682d9cb1f98b37599b261466ba62ce3
         <div class="card-body ">
           <h5 class="card-title"><?=$name; ?></h5>
           <p class="card-text"><?=$overview; ?></p>
@@ -37,11 +33,10 @@ for($i = 0; $i < $length; $i++) {
           <p class="card-text"><?=$facts; ?></p>
         </div>
         <div class="card-footer">
-          <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" class="btn btn-danger">Learn More</a></small>
+          <small class="text-muted"><a href="<?=Uri::create($url); ?>" class="btn btn-danger">Learn More</a></small>
         </div>
       </div>
     </div>
   </div>
 <?php } ?>
 </div>
-

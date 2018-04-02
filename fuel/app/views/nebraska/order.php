@@ -16,7 +16,7 @@
 
 <!-- The start of the changing images -->
   <div class="container">
-    <?=$order_dests; ?>
+    <?=$dests; ?>
   </div>
 
   <div class="container">

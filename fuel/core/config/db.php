@@ -56,11 +56,11 @@ return array(
 	'default' => array(
 		'type'           => 'mysqli',
 		'connection'     => array(
-			'hostname'       => 'localhost',
+			'hostname'       => 'faure.cs.colostate.edu',
 			'port'           => '3306',
-			'database'       => 'ct310',
-			'username'       => 'ct310',
-			'password'       => 'ct310class',
+			'database'       => 'ewanlp',
+			'username'       => 'ewanlp',
+			'password'       => '830570385',
 			'persistent'     => false,
 			'compress'       => false,
 		),
@@ -71,6 +71,7 @@ return array(
 		'profiling'      => false,
 		'readonly'       => false,
 	),
+
 	/**
 	 * Base Redis config
 	 */
