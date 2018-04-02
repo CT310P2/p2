@@ -184,6 +184,30 @@ class Controller_Nebraska extends Controller
           return $content;
     }
 
+    public function action_order(){
+    
+      $session = Session::instance();
+      $layout = View::forge('nebraska/order');
+      $nav = View::forge('nebraska/nav');
+      $dests = View::forge('nebraska/dests');
+      $username = $session->get('username');
+      $admin = $session->get('admin');
+      if(isset($username)){
+        $nav->set_safe('admin', $admin);
+        $nav->set_safe('username',$username);
+        $dests->set_safe('admin', $admin);
+        $dests->set_safe('username',$username);
+        $layout->set_safe('username',$username);
+      }
+      $footer = View::forge('nebraska/footer');
+
+      $layout->nav = Response::forge($nav);
+      $layout->dests = Response::forge($dests);
+      $layout->footer = Response::forge($footer);
+
+      return $layout;
+    }
+
     public function action_nUser(){
 
       $name = Input::post('user');
@@ -237,4 +261,6 @@ class Controller_Nebraska extends Controller
 
       return $content;
     }
+    
+    
 }

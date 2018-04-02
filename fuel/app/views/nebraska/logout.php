@@ -1,3 +1,3 @@
 <?php
-header('location: http://www.cs.colostate.edu/~ewanlp/ct310/index.php/nebraska/login');
+header('location: http://www.cs.colostate.edu/~sabrinaw/ct310/index.php/nebraska/login');
 ?>

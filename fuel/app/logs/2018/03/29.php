@@ -14,3 +14,15 @@ ERROR - 2018-03-29 09:17:22 --> Notice - Undefined variable: dests in /s/bach/c/
 ERROR - 2018-03-29 09:31:30 --> Parsing Error - syntax error, unexpected '$session' (T_VARIABLE), expecting function (T_FUNCTION) in /s/bach/c/under/ewanlp/fuel/app/classes/controller/nebraska.php on line 127
 ERROR - 2018-03-29 09:31:40 --> Notice - Undefined variable: password in /s/bach/c/under/ewanlp/fuel/app/classes/controller/nebraska.php on line 140
 ERROR - 2018-03-29 10:18:42 --> Notice - Undefined variable: length in /s/bach/c/under/ewanlp/fuel/app/views/nebraska/dests.php on line 20
+ERROR - 2018-03-29 12:33:29 --> Parsing Error - syntax error, unexpected end of file in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 274
+ERROR - 2018-03-29 12:41:14 --> Parsing Error - syntax error, unexpected end of file in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/nav.php on line 110
+ERROR - 2018-03-29 12:41:15 --> Parsing Error - syntax error, unexpected end of file in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/nav.php on line 110
+ERROR - 2018-03-29 12:41:57 --> Parsing Error - syntax error, unexpected '<' in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/nav.php on line 35
+ERROR - 2018-03-29 12:44:16 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:44:45 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:45:28 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:45:33 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:45:36 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:45:40 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:45:44 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189
+ERROR - 2018-03-29 12:46:05 --> Fatal Error - Call to a member function runQuery() on a non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 189

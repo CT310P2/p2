@@ -25,7 +25,7 @@ for($i = 0; $i < $length; $i++) {
   <div class="col-6">
     <div class="card-deck">
       <div class="card border-danger text-center">
-        <img class="card-img-top" src=" <?=$image; ?>" alt="Card image cap" height="242" width="162">
+        <img class="card-img-top" src="<?=$image; ?>" alt="Card image cap" height="242" width="162">
         <div class="card-body ">
           <h5 class="card-title"><?=$name; ?></h5>
           <p class="card-text"><?=$overview; ?></p>
