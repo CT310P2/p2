@@ -1,5 +1,6 @@
 <?php
 use Model\Nebraska;
+use Model\Dest;
 class Controller_Nebraska extends Controller
 {
     public function action_index()
@@ -75,6 +76,31 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
+
+
+    	public function action_view($name)
+	{
+        $session = Session::instance();
+        $layout = View::forge('nebraska/layoutfull');
+        $nav = View::forge('nebraska/nav');
+        $comment = View::forge('nebraska/comment');
+        $dest = Dest::find($name);
+        $layout->set_safe('dest', $dest);
+        $username = $session->get('username');
+        $admin = $session->get('admin');
+        if(isset($username)){
+          $nav->set_safe('admin', $admin);
+          $layout->set_safe('username',$username);
+          $nav->set_safe('username',$username);
+          $comment->set_safe('username',$username);
+        }
+        $footer = View::forge('nebraska/footer');
+        $layout->nav = Response::forge($nav);
+        $layout->comment = Response::forge($comment);
+        $layout->footer = Response::forge($footer);
+        return $layout;
+	}
+	
     public function action_zooAqua(){
         $session = Session::instance();
         $layout = View::forge('nebraska/zooAqua');
@@ -119,6 +145,8 @@ class Controller_Nebraska extends Controller
       $layout = View::forge('nebraska/allDest');
       $nav = View::forge('nebraska/nav');
       $dests = View::forge('nebraska/dests');
+      $dest = Dest::find('all');
+      $dests->set_safe('dest', $dest);
       $username = $session->get('username');
       $admin = $session->get('admin');
       if(isset($username)){
@@ -134,6 +162,7 @@ class Controller_Nebraska extends Controller
       $layout->footer = Response::forge($footer);
       return $layout;
     }
+    
     public function action_login(){
         $session = Session::instance();
         $layout = View::forge('nebraska/login');
@@ -151,21 +180,33 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
+
+    
     public function action_addDest(){
-          $name = Input::post('name');
-          $image = Input::post('image');
-          $imageName = Input::post('imageName');
-          $overview = Input::post('overview');
-          $history = Input::post('history');
-          $facts = Input::post('facts');
-          $url = "index.php/nebraska/".$name;
-          $query = DB::query("INSERT INTO destinations (name, image, imageName, overview, history, facts, url) VALUES (:name, :image, :imageName, :overview, :history, :facts, :url)");
-          $query->parameters(array('name' => $name, 'image' => $image, 'imageName' => $imageName, 'overview' => $overview, 'history' => $history, 'facts' => $facts, 'url' => $url))->execute();
-          $content = View::forge('nebraska/success');
-          $status = 'success';
-          $content -> set_safe('status',$status);
-          return $content;
-    }
+        $name = Input::post('name');
+        $image = Input::post('image');
+        $imageName = Input::post('imageName');
+        $overview = Input::post('overview');
+        $history = Input::post('history');
+        $facts = Input::post('facts');
+
+        $dest = new Dest();
+    
+        $dest->name = $name;
+        $dest->image = $image;
+        $dest->imageName = $imageName;
+        $dest->overview = $overview;
+        $dest->history = $history;
+        $dest->facts = $facts;
+
+        $dest->save();
+        $content = View::forge('nebraska/success');
+        $status = 'success';
+        $content -> set_safe('status',$status);
+        return $content;
+        }
+
+
     public function action_nUser(){
       $name = Input::post('user');
       $email = Input::post('email');

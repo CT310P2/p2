@@ -6,9 +6,7 @@
 return array(
     'default' => array(
         'connection'  => array(
-            'hostname'   => 'faure.cs.colostate.edu',
-            'port'       => '3306',
-            'database'   => 'ewanlp',
+            'dsn'   => 'mysql:host=faure.cs.colostate.edu; dbname=ewanlp',
             'username'   => 'ewanlp',
             'password'   => '830570385',
         ),
