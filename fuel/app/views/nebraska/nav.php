@@ -17,9 +17,12 @@
           Destinations
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item " href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" >Carhenge</a>
-          <a class="dropdown-item" href="<?=Uri::create('index.php/nebraska/zooAqua'); ?>" >Henry Doorly Zoo and Aquarium</a>
-          <a class="dropdown-item" href="<?=Uri::create('index.php/nebraska/chimney'); ?>" >Chimney Rock</a>
+        <a class="dropdown-item" href="<?=Uri::create('index.php/nebraska/allDest'); ?>">All Destinations</a>
+          <?php foreach($dests as $dest): ?>
+            <?php $ar = explode(" ", $dest)?>
+      		    <a class="dropdown-item " href="<?=Uri::create('index.php/nebraska/view/'.$ar[0]); ?>" ><?=$ar[1]; ?></a>
+  	      <?php endforeach; ?>
+
         </div>
       </li>
       <li class="nav-item">
@@ -98,7 +101,7 @@
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                     <br />
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="admin">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Admin</label>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-warning my-2 my-sm-0" data-dismiss="modal">Close</button>
@@ -108,5 +111,3 @@
         </div>
     </div>
 </div>
-
-

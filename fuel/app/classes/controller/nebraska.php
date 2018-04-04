@@ -3,11 +3,17 @@ use Model\Nebraska;
 use Model\Dest;
 class Controller_Nebraska extends Controller
 {
-    public function action_index()
-    {
+    public function action_index() {
+
         $session = Session::instance();
         $layout = View::forge('nebraska/index');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -30,6 +36,12 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/about');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -46,6 +58,12 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/credits');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -61,6 +79,12 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/carhenge');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         $admin = $session->get('admin');
@@ -83,6 +107,12 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/layoutfull');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $comment = View::forge('nebraska/comment');
         $dest = Dest::find($name);
         $layout->set_safe('dest', $dest);
@@ -100,11 +130,17 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
 	}
-	
+
     public function action_zooAqua(){
         $session = Session::instance();
         $layout = View::forge('nebraska/zooAqua');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         $admin = $session->get('admin');
@@ -124,6 +160,12 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/chimney');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $comment = View::forge('nebraska/comment');
         $username = $session->get('username');
         $admin = $session->get('admin');
@@ -144,6 +186,12 @@ class Controller_Nebraska extends Controller
       $session = Session::instance();
       $layout = View::forge('nebraska/allDest');
       $nav = View::forge('nebraska/nav');
+      $dests = Dest::find('all');
+      $destString;
+      foreach($dests as $key=>$dest){
+        $destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+      }
+      $nav->set_safe('dests', $destString);
       $dests = View::forge('nebraska/dests');
       $dest = Dest::find('all');
       $dests->set_safe('dest', $dest);
@@ -162,11 +210,17 @@ class Controller_Nebraska extends Controller
       $layout->footer = Response::forge($footer);
       return $layout;
     }
-    
+
     public function action_login(){
         $session = Session::instance();
         $layout = View::forge('nebraska/login');
         $nav = View::forge('nebraska/nav');
+        $dests = Dest::find('all');
+    		$destString;
+    		foreach($dests as $key=>$dest){
+    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
+    		}
+    		$nav->set_safe('dests', $destString);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username) && isset($password)){
@@ -181,7 +235,7 @@ class Controller_Nebraska extends Controller
         return $layout;
     }
 
-    
+
     public function action_addDest(){
         $name = Input::post('name');
         $image = Input::post('image');
@@ -191,7 +245,7 @@ class Controller_Nebraska extends Controller
         $facts = Input::post('facts');
 
         $dest = new Dest();
-    
+
         $dest->name = $name;
         $dest->image = $image;
         $dest->imageName = $imageName;
