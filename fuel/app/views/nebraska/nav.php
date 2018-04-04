@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand text-danger" href="<?=Uri::create('index.php/nebraska'); ?>">Nebraska</a>
+  <a class="navbar-brand text-danger" href="<?=Uri::create('index.php/nebraska/index'); ?>">Nebraska</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?=Uri::create('index.php/nebraska'); ?>">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?=Uri::create('index.php/nebraska/index'); ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=Uri::create('index.php/nebraska/about'); ?>" >About Us</a>
@@ -52,7 +52,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="..">
+            <form method="POST" action="addDest">
                 <div class="modal-body">
                     <label for="user">Destination Info</label>
                     <input type="username" class="form-control" id="userr" placeholder="Destination Name" name="name">

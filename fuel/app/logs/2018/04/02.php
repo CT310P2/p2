@@ -25,3 +25,10 @@ ERROR - 2018-04-02 14:30:39 --> Fatal Error - Call to undefined method Model\Dem
 ERROR - 2018-04-02 14:30:40 --> Fatal Error - Call to undefined method Model\Demo::find() in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/demo.php on line 23
 ERROR - 2018-04-02 14:33:40 --> Parsing Error - syntax error, unexpected '$content' (T_VARIABLE) in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/demo.php on line 25
 ERROR - 2018-04-02 14:38:01 --> Parsing Error - syntax error, unexpected '$content' (T_VARIABLE) in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/demo.php on line 25
+ERROR - 2018-04-02 18:44:54 --> Fatal Error - Call to undefined method Model\Demo::find() in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/demo.php on line 23
+ERROR - 2018-04-02 19:52:58 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 222
+ERROR - 2018-04-02 20:35:51 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 199
+ERROR - 2018-04-02 20:36:34 --> Parsing Error - syntax error, unexpected ')', expecting variable (T_VARIABLE) in /s/bach/e/under/sabrinaw/fuel/app/classes/model/dest.php on line 31
+ERROR - 2018-04-02 20:37:30 --> Parsing Error - syntax error, unexpected end of file, expecting function (T_FUNCTION) in /s/bach/e/under/sabrinaw/fuel/app/classes/model/dest.php on line 69
+ERROR - 2018-04-02 20:37:43 --> Error - Database type not defined in "ewanlp" configuration or "ewanlp" configuration does not exist in /s/bach/e/under/sabrinaw/fuel/core/classes/database/connection.php on line 72
+ERROR - 2018-04-02 20:58:21 --> Error - Database type not defined in "ewanlp" configuration or "ewanlp" configuration does not exist in /s/bach/e/under/sabrinaw/fuel/core/classes/database/connection.php on line 72
