@@ -8,24 +8,24 @@
     </div>
     <div class="card-body">
       <div class="card-deck">
-        <div class="card border-warning">
+        <div class="card border-success">
           <img class="card-img-top" src="./../../img/car2.jpg" alt="Card image cap" height="180" width="255">
           <div class="card-body ">
             <h5 class="card-title">Carhenge</h5>
             <p class="card-text">Have you ever wanted to visit the famous Stonehenge but it's too far away? This is the perfect solution!</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" class="btn btn-warning">Learn More</a></small>
+            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/carhenge'); ?>" class="btn btn-success">Learn More</a></small>
           </div>
         </div>
-        <div class="card border-primary">
+        <div class="card border-success">
           <img class="card-img-top" src="./../../img/zoo.jpg" alt="Card image cap" height="180" width="255">
           <div class="card-body">
             <h5 class="card-title">Henry Doorly Zoo and Aquarium</h5>
             <p class="card-text">One of the world's best zoo's with some of the largest, wildest, exhibits!</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/zooAqua'); ?>" class="btn btn-primary">Learn More</a></small>
+            <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/zooAqua'); ?>" class="btn btn-success">Learn More</a></small>
           </div>
         </div>
         <div class="card border-success">
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="card-footer text-muted">
-      <a type="button" class="btn btn-danger btn-lg btn-block" href="<?=Uri::create('index.php/nebraska/allDest'); ?>">All Destinations</a>
+      <a type="button" class="btn btn-success btn-lg btn-block" href="<?=Uri::create('index.php/nebraska/allDest'); ?>">All Destinations</a>
     </div>
   </div>
 </div>

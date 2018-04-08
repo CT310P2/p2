@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand text-danger" href="<?=Uri::create('index.php/nebraska/index'); ?>">Nebraska</a>
+  <a class="navbar-brand text-success" href="<?=Uri::create('index.php/nebraska/index'); ?>">Nebraska</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,9 +18,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="<?=Uri::create('index.php/nebraska/allDest'); ?>">All Destinations</a>
-          <?php foreach($dests as $dest): ?>
-            <?php $ar = explode(" ", $dest)?>
-      		    <a class="dropdown-item " href="<?=Uri::create('index.php/nebraska/view/'.$ar[0]); ?>" ><?=$ar[1]; ?></a>
+          <?php foreach($dests as $de): ?>
+      		    <a class="dropdown-item " href="<?=Uri::create('index.php/nebraska/view/'.$de->id); ?>" ><?=$de->name; ?></a>
   	      <?php endforeach; ?>
 
         </div>
@@ -31,16 +30,16 @@
     </ul>
     <div class="my-2 my-lg-0">
         <?php if(isset($username)) { ?>
-            <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button> <?php if($admin) { ?>
-              <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button> <?php } ?>
-            <?php if($admin == 0) { ?>
-              <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/order'); ?>">Order Brochure</a>
-              <?php } ?>
+            <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button>
+            <?php if($admin) { ?>
+                <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button>
+            <?php } ?>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Logout</a>
         <?php } else {?>
           <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#exampleModall"> Register </button>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/login'); ?>" >Login</a>
         <?php } ?>
+      <button class="btn btn-outline-secondary my-2 my-sm-0">Cart</button>
     </div>
   </div>
 </nav>
@@ -101,7 +100,7 @@
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                     <br />
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="admin">
-                    <label class="form-check-label" for="exampleCheck1">Admin</label>
+                    <label class="form-check-label" for="exampleCheck1">Admin?</label>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-warning my-2 my-sm-0" data-dismiss="modal">Close</button>
@@ -110,4 +109,33 @@
             </form>
         </div>
     </div>
+</div>
+<!--Cart modal-->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered text-center" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-success text-center" id="exampleModalLabel">Purchase Brochure</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="sel1">Select 1 or More Destination(s)!</label>
+            <select multiple class="form-control" id="sel1">
+              <?php foreach($dests as $de): ?>
+                <option<?php $de->id ?>><?=$de->name; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-success my-2 my-sm-0" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Add Destination</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
