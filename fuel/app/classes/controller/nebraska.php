@@ -1,6 +1,7 @@
 <?php
-use Model\Nebraska;
 use Model\Dest;
+use Model\User;
+use Model\Comments;
 class Controller_Nebraska extends Controller
 {
     public function action_index() {
@@ -9,11 +10,7 @@ class Controller_Nebraska extends Controller
         $layout = View::forge('nebraska/index');
         $nav = View::forge('nebraska/nav');
         $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
+        $nav->set_safe('dests',$dests);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -37,11 +34,7 @@ class Controller_Nebraska extends Controller
         $layout = View::forge('nebraska/about');
         $nav = View::forge('nebraska/nav');
         $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
+        $nav->set_safe('dests',$dests);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -58,12 +51,10 @@ class Controller_Nebraska extends Controller
         $session = Session::instance();
         $layout = View::forge('nebraska/credits');
         $nav = View::forge('nebraska/nav');
+
         $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
+        $nav->set_safe('dests',$dests);
+
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username)){
@@ -72,141 +63,64 @@ class Controller_Nebraska extends Controller
         }
         $footer = View::forge('nebraska/footer');
         $layout->nav = Response::forge($nav);
-        $layout->footer = Response::forge($footer);
-        return $layout;
-    }
-    public function action_carhenge(){
-        $session = Session::instance();
-        $layout = View::forge('nebraska/carhenge');
-        $nav = View::forge('nebraska/nav');
-        $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
-        $comment = View::forge('nebraska/comment');
-        $username = $session->get('username');
-        $admin = $session->get('admin');
-        if(isset($username)){
-          $nav->set_safe('admin', $admin);
-          $layout->set_safe('username',$username);
-          $nav->set_safe('username',$username);
-          $comment->set_safe('username',$username);
-        }
-        $footer = View::forge('nebraska/footer');
-        $layout->nav = Response::forge($nav);
-        $layout->comment = Response::forge($comment);
         $layout->footer = Response::forge($footer);
         return $layout;
     }
 
+    public function action_view($id)
+{
+      $session = Session::instance();
+      $layout = View::forge('nebraska/layoutfull');
+      $nav = View::forge('nebraska/nav');
+      $comment = View::forge('nebraska/comment');
 
-    	public function action_view($name)
-	{
-        $session = Session::instance();
-        $layout = View::forge('nebraska/layoutfull');
-        $nav = View::forge('nebraska/nav');
-        $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
-        $comment = View::forge('nebraska/comment');
-        $dest = Dest::find($name);
-        $layout->set_safe('dest', $dest);
-        $username = $session->get('username');
-        $admin = $session->get('admin');
-        if(isset($username)){
-          $nav->set_safe('admin', $admin);
-          $layout->set_safe('username',$username);
-          $nav->set_safe('username',$username);
-          $comment->set_safe('username',$username);
-        }
-        $footer = View::forge('nebraska/footer');
-        $layout->nav = Response::forge($nav);
-        $layout->comment = Response::forge($comment);
-        $layout->footer = Response::forge($footer);
-        return $layout;
-	}
+      $dests = Dest::find('all');
+      $nav->set_safe('dests',$dests);
 
-    public function action_zooAqua(){
-        $session = Session::instance();
-        $layout = View::forge('nebraska/zooAqua');
-        $nav = View::forge('nebraska/nav');
-        $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
-        $comment = View::forge('nebraska/comment');
-        $username = $session->get('username');
-        $admin = $session->get('admin');
-        if(isset($username)){
-          $nav->set_safe('admin', $admin);
-          $layout->set_safe('username',$username);
-          $comment->set_safe('username',$username);
-          $nav->set_safe('username',$username);
-        }
-        $footer = View::forge('nebraska/footer');
-        $layout->nav = Response::forge($nav);
-        $layout->comment = Response::forge($comment);
-        $layout->footer = Response::forge($footer);
-        return $layout;
-    }
-    public function action_chimney(){
-        $session = Session::instance();
-        $layout = View::forge('nebraska/chimney');
-        $nav = View::forge('nebraska/nav');
-        $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
-        $comment = View::forge('nebraska/comment');
-        $username = $session->get('username');
-        $admin = $session->get('admin');
-        if(isset($username)){
-          $nav->set_safe('admin', $admin);
-          $layout->set_safe('username',$username);
-          $nav->set_safe('username',$username);
-          $comment->set_safe('username',$username);
-        }
-        $footer = View::forge('nebraska/footer');
-        $layout->nav = Response::forge($nav);
-        $layout->comment = Response::forge($comment);
-        $layout->footer = Response::forge($footer);
-        return $layout;
-    }
+      $dest = Dest::find($id);
+      $layout->set_safe('dest', $dest);
+  
+      //contains all comments for this dest
+      $com = Comments::find('all', array('where' => array(array('dId',$id))));
+      $comment->set_safe('comment', $com);
+      
+      $username = $session->get('username');
+      $admin = $session->get('admin');
+      if(isset($username)){
+        $nav->set_safe('admin', $admin);
+        $layout->set_safe('username',$username);
+        $nav->set_safe('username',$username);
+        $comment->set_safe('username',$username);
+      }
+      $footer = View::forge('nebraska/footer');
+      $layout->nav = Response::forge($nav);
+      $layout->comment = Response::forge($comment);
+      $layout->footer = Response::forge($footer);
+      return $layout;
+}
 
     public function action_allDest(){
       $session = Session::instance();
       $layout = View::forge('nebraska/allDest');
       $nav = View::forge('nebraska/nav');
+
+      $destss = View::forge('nebraska/dests');
       $dests = Dest::find('all');
-      $destString;
-      foreach($dests as $key=>$dest){
-        $destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-      }
-      $nav->set_safe('dests', $destString);
-      $dests = View::forge('nebraska/dests');
-      $dest = Dest::find('all');
-      $dests->set_safe('dest', $dest);
+
+      $destss->set_safe('destss', $dests);
+      $nav->set_safe('dests',$dests);
       $username = $session->get('username');
       $admin = $session->get('admin');
       if(isset($username)){
         $nav->set_safe('admin', $admin);
         $nav->set_safe('username',$username);
-        $dests->set_safe('admin', $admin);
-        $dests->set_safe('username',$username);
+        $destss->set_safe('admin', $admin);
+        $destss->set_safe('username',$username);
         $layout->set_safe('username',$username);
       }
       $footer = View::forge('nebraska/footer');
       $layout->nav = Response::forge($nav);
-      $layout->dests = Response::forge($dests);
+      $layout->destss = Response::forge($destss);
       $layout->footer = Response::forge($footer);
       return $layout;
     }
@@ -216,11 +130,7 @@ class Controller_Nebraska extends Controller
         $layout = View::forge('nebraska/login');
         $nav = View::forge('nebraska/nav');
         $dests = Dest::find('all');
-    		$destString;
-    		foreach($dests as $key=>$dest){
-    			$destString[$key] = $dest['id']." ".$dest['name']." ".$dest['image']." ".$dest['imageName']." ".$dest['overview']." ".$dest['history']." ".$dest['facts'];
-    		}
-    		$nav->set_safe('dests', $destString);
+        $nav->set_safe('dests',$dests);
         $username = $session->get('username');
         $admin = $session->get('admin');
         if(isset($username) && isset($password)){
@@ -235,6 +145,40 @@ class Controller_Nebraska extends Controller
         return $layout;
     }
 
+    public function post_addComment($id){
+      $session = Session::instance();
+      if (isset($_POST['cEntry'])){
+        //start of user table info
+        $username = $session->get('username'); //name of current user adding comment
+        $user = User::find($username); //has all user data!
+        $uId = $user->id;
+        
+        //start of destination table info
+        $dest = Dest::find($id); //the current destination, can access all dest info (name, image, etc.)
+        $destID = $dest->id;
+        $destName = $dest->name;
+        
+        //start of comment table info
+        $deleted = 0; //default 0 (false, meaning it should be displayed(has not been deleted))
+        $commentText = Input::post('commentText');
+        
+        $comment = new Comments();
+        
+        $comment->userId = $uId;
+        $comment->userName = $username;
+        $comment->destName = $destName;
+        $comment->commentText = $commentText;
+        $comment->postTime = date();
+        $comment->deleted = $deleted; //if the comment has been deleted by an admin, should not be dsiplayed if 1
+        $comment->postTime = $destID;
+  
+        $comment->save();
+        $content = View::forge('nebraska/success');
+        $status = 'success';
+        $content -> set_safe('status',$status);
+        return $content;
+      }
+    }
 
     public function action_addDest(){
         $name = Input::post('name');
@@ -266,8 +210,15 @@ class Controller_Nebraska extends Controller
       $email = Input::post('email');
       if (Input::post('admin')){ $admin = 1; }else {$admin = 0;}
       $pass = md5(Input::post('pass'));
-      $query = DB::query("INSERT INTO users (userName,admin,userPass,email) VALUES  (:name, :admin, :pass, :email)");
-      $query->parameters(array('name' => $name, 'admin' => $admin, 'pass' => $pass, 'email' => $email))->execute();
+      
+      $user = new User();
+      $user->userName = $name;
+      $user->admin = $admin;
+      $user->userPass = $pass;
+      $user->email = $email;
+      
+      $user->save();
+      
       $content = View::forge('nebraska/success');
       $status = 'success';
       $content -> set_safe('status',$status);
@@ -284,6 +235,7 @@ class Controller_Nebraska extends Controller
         if((isset($username) && isset($password)) && (($username === $user['userName'] || $username === $user['email']) && md5($password) === $user['userPass'])) { //tries to sign the user in, and send them to home page
             Session::create();
             Session::set('username', $user['userName']);
+            
             Session::set('admin', $admin);
             Session::set('userid', 12345);
             $content = View::forge('nebraska/success');
@@ -295,6 +247,8 @@ class Controller_Nebraska extends Controller
             $content = View::forge('nebraska/loginError');
             $nav = View::forge('nebraska/nav');
             $footer = View::forge('nebraska/footer');
+            $dests = Dest::find('all');
+            $nav->set_safe('dests',$dests);
             $content->nav = Response::forge($nav);
             $content->footer = Response::forge($footer);
             $content->set_safe('status','error');

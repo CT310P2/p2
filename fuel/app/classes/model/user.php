@@ -2,25 +2,23 @@
 
 namespace Model;
 
-class Dest extends \Orm\Model
+class User extends \Orm\Model
 {
-  protected static $_table_name = 'destinations';
+  protected static $_table_name = 'users';
   
   protected static $_primary_key = array('id');
   
   protected static $_properties = array(
     'id',
-    'name',
-    'image',
-    'imageName',
-    'overview',
-    'history',
-    'facts',
+    'userName',
+    'admin',
+    'userPass',
+    'email'
   );
   protected static $_has_many = array('comments' => array(
     'key_from' => 'id',
     'model_to' => 'Model\Comments',
-    'key_to' => 'dId',
+    'key_to' => 'userId',
     'cascade_save' => true,
     'cascade_delete' => false,
   ));
