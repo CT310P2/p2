@@ -5,7 +5,7 @@
   <div class="col-6">
     <div class="card-deck">
       <div class="card border-success text-center">
-        <img class="card-img-top" src=" ../../img/<?=$des->image; ?>" alt="Card image <?=$des->image; ?>" height="242" width="162">
+        <img class="card-img-top" src=" ../../assets/img/<?=$des->image; ?>" alt="Card image <?=$des->image; ?>" height="242" width="162">
         <div class="card-body ">
           <h5 class="card-title"><?=$des->name; ?></h5>
           <p class="card-text"><?=$des->overview; ?></p>

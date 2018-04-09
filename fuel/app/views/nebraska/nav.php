@@ -31,6 +31,7 @@
     <div class="my-2 my-lg-0">
         <?php if(isset($username)) { ?>
             <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button>
+            <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#passchange"> Change Password </button>
             <?php if($admin) { ?>
                 <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button>
             <?php } ?>
@@ -111,6 +112,37 @@
         </div>
     </div>
 </div>
+
+<!--Register modal-->
+<div class="modal fade" id="passchange" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelll" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-warning text-center" id="exampleModalLabelll">Change Pass</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="changePass">
+                <div class="modal-body">
+                    <input type="username" class="form-control" id="oldpass" placeholder="Username" name="username">
+                    <br />
+                    <input type="password" class="form-control" id="oldpass" placeholder="Old Password" name="oldpass">
+                    <br />
+                    <input type="password" class="form-control" id="pass" placeholder="New Password" name="pass">
+                    <br />
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <!--Cart modal-->
 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered text-center" role="document">

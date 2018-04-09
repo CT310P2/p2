@@ -48,7 +48,11 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+                <img class="card-img-bottom" src="../../../assets/img/<?=$dest->image; ?>" alt="Card image <?=$dest->image; ?>">
+=======
                 <img class="card-img-bottom" src="../../../img/<?=$destination->image; ?>" alt="Card image <?=$destination->image; ?>">
+>>>>>>> d49e60fae3e6ef16b60005328052c5c1c67e597d
             </div>
         </div>
     </div>
