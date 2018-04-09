@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="card-img-bottom" src="../../../img/<?=$dest->image; ?>" alt="Card image <?=$dest->image; ?>">
+                <img class="card-img-bottom" src="../../../assets/img/<?=$dest->image; ?>" alt="Card image <?=$dest->image; ?>">
             </div>
         </div>
     </div>

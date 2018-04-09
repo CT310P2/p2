@@ -46,12 +46,37 @@
                         </div>
                     </div>
                 </form>
+                                <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalll"> Forgot Password </button>
             </div>
             <br />
           </div>
       </div>
   </div>
 
+<div class="modal fade" id="exampleModalll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelll" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-warning text-center" id="exampleModalLabelll">Reset Password</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="forgotpass">
+                <div class="modal-body">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Send Email Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  
+  
   <div class="container">
     <?= $footer; ?>
   </div>

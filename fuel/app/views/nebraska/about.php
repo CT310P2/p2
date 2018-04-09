@@ -30,9 +30,9 @@
                                 &#9656; You can learn more about him from his personal website <a href = "https://www.cs.colostate.edu/~ewanlp"> HERE</a><br /></p>
                         </div>
                         <div class="tab-pane fade show active" id="XC" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            <h4 class="card-title">Logan Reed</h4>
-                            <p>&#9656; Logan is a 3rd year student studying Computer Science.<br />
-                                &#9656; To learn more about him, check out his own personal website <a href = "https://www.cs.colostate.edu/~lvreed"> HERE </a> <br /></p>
+                            <h4 class="card-title">Sabrina White</h4>
+                            <p>&#9656; Sabrina is a 3rd year student studying Computer Science.<br />
+                                &#9656; To learn more about him, check out his own personal website <a href = "https://www.cs.colostate.edu/~sabrinaw/north/index.html"> HERE </a> <br /></p>
                         </div>
                     </div>
                 </div>

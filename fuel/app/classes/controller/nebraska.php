@@ -182,7 +182,6 @@ class Controller_Nebraska extends Controller
 
     public function action_addDest(){
         $name = Input::post('name');
-//         $image = Input::post('image');
         $imageName = Input::post('imageName');
         $overview = Input::post('overview');
         $history = Input::post('history');
@@ -205,7 +204,7 @@ class Controller_Nebraska extends Controller
         $imagepath = Upload::get_files()[0]['saved_as'];
         
         $dest->name = $name;
-//         $dest->image = $image;
+        $dest->image = $imagepath;
         $dest->imageName = $imageName;
         $dest->overview = $overview;
         $dest->history = $history;
@@ -238,6 +237,54 @@ class Controller_Nebraska extends Controller
       $content -> set_safe('status',$status);
       return $content;
     }
+    
+    public function action_changePass(){
+
+        $username = Input::post('username');
+        $old_password = Input::post('oldpass');
+        $newPass = Input::post('pass');
+        $user = User::query()->where('userName', '=', $username)->get_one();
+
+        if((isset($username) && isset($old_password)) && (($username === $user->userName) && md5($old_password) === $user->userPass)){
+        
+        $user->userPass = md5($newPass);
+        $user->save();
+        
+        }
+      
+      $content = View::forge('nebraska/success');
+      $status = 'success';
+      $content -> set_safe('status',$status);
+      return $content;
+    }
+    
+    public function action_forgotpass(){
+      $emailName = Input::post('email');
+      
+      $entry = User::query()->where('email', '=', $emailName)->get_one();
+      
+      $new_password = Str::random('alpha', 10);
+      
+      $email = Email::forge();
+      $email->from('sabrinaw@rams.colostate.edu', 'Sabrina White');
+      $email->to($entry->email, $entry->userName);
+      $email->subject('New Password');
+      $email->body('Your new temporary password is '. $new_password. '. When you log back in, make sure to change your password');
+      $email->send();
+      
+      $pass = md5($new_password);
+      $entry->userPass = $pass;
+      $entry->save();
+      
+      $content = View::forge('nebraska/success');
+      $status = 'success';
+      $content -> set_safe('status',$status);
+      return $content;
+    }
+    
+    
+    
+    
     public function action_check(){
         $username = Input::post('username');
         $password = Input::post('password');
