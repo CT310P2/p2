@@ -55,7 +55,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="addDest">
+            <form method="POST" action="addDest" enctype = "multipart/form-data">
                 <div class="modal-body">
                     <label for="user">Destination Info</label>
                     <input type="username" class="form-control" id="userr" placeholder="Destination Name" name="name">
