@@ -235,7 +235,7 @@ class Controller_Nebraska extends Controller
 
     public function action_addDest(){
         $name = Input::post('name');
-        $image = Input::post('image');
+//         $image = Input::post('image');
         $imageName = Input::post('imageName');
         $overview = Input::post('overview');
         $history = Input::post('history');
@@ -243,8 +243,22 @@ class Controller_Nebraska extends Controller
 
         $dest = new Dest();
 
+    $config = array(
+        'path' => DOCROOT.'assets/img',
+        'randomize' => true,
+        'ext_whitelist' => array('img', 'jpg', 'jpeg', 'gif', 'png'),
+        );
+        
+        Upload::process($config);
+        
+        if (Upload::is_valid()){
+            Upload::save();
+            }
+
+        $imagepath = Upload::get_files()[0]['saved_as'];
+        
         $dest->name = $name;
-        $dest->image = $image;
+//         $dest->image = $image;
         $dest->imageName = $imageName;
         $dest->overview = $overview;
         $dest->history = $history;
