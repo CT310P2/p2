@@ -72,6 +72,14 @@ class Controller_Nebraska extends Controller
       $session = Session::instance();
       $layout = View::forge('nebraska/cart');
       $nav = View::forge('nebraska/nav');
+
+      $ads = User::find_by('admin', 1);
+      $adUsers = array();
+      foreach($ads as $a){
+        array_push($adUsers, $a->email);
+      }
+      $layout->set_safe('adUsers',$adUsers);
+
       $layout->set_safe('username',$username);
       $entry = User::query()->where('username', '=', $username)->get_one()->to_array();
       $email = $entry['email'];
@@ -173,6 +181,8 @@ class Controller_Nebraska extends Controller
         return $content;
       }
       if(isset($_POST['addDestt'])){
+        $admins = Input::post('admins');
+
         $destID = Input::post('destId');
         $cart = new Cart();
         $cart->dId = $destID;

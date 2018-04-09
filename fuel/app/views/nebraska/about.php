@@ -13,6 +13,36 @@
 <!-- Start of the navigation bar-->
 <?=$nav; ?>
 
+<br /><br /><br />
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h1 class="display-4">A bit about us!</h1>
+        <p class="lead">Just two students doing some programming, ya know. No big deal. Find out more about us below.</p>
+        <hr class="my-4">
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Luke Ewan</h5>
+              <p class="card-text">Hey there! My name is Luke, I'm a third year student here at CSU. I am studying Applied Computing Technology after switching from Computer Science. I enjoy being outside and leadership!</p>
+              <p class="card-text"><small class="text-muted"><a href="http://www.cs.colostate.edu/~ewanlp/" target="_blank">My home page</a></small></p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sabrina White</h5>
+              <p class="card-text">Info about Sabrina goes here.</p>
+              <p class="card-text"><small class="text-muted"><a href="http://www.cs.colostate.edu/~sabrinaw/" target="_blank">My home page</a></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <?= $footer; ?>
 </div>

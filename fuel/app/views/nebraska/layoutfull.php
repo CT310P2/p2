@@ -44,7 +44,7 @@
                         </div>
                         <div class="tab-pane fade" id="RA" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <h4 class="card-title">How About some Awesome Facts!</h4>
-                            <p>&#9656; <?=$destination->facts; ?>></p>
+                            <p>&#9656; <?=$destination->facts; ?></p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <?php if(isset($username)){ ?>
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="cSub"name="cSub">Add Comment</button>
                 <?php } else { ?>
-                  <button type="button" class="btn btn-outline-danger my-2 my-sm-0" data-toggle="modal" data-target="#comment">Add Comment</button>
+                  <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#comment">Add Comment</button>
                   <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered text-center" role="document">
                       <div class="modal-content">

@@ -21,3 +21,5 @@ ERROR - 2018-04-09 13:19:16 --> Parsing Error - syntax error, unexpected 'if' (T
 ERROR - 2018-04-09 13:24:06 --> Parsing Error - syntax error, unexpected ')' in /s/bach/c/under/ewanlp/fuel/app/views/nebraska/cart.php on line 17
 ERROR - 2018-04-09 13:24:16 --> Parsing Error - syntax error, unexpected 'mail' (T_STRING) in /s/bach/c/under/ewanlp/fuel/app/views/nebraska/cart.php on line 20
 ERROR - 2018-04-09 14:16:26 --> Warning - Creating default object from empty value in /s/bach/c/under/ewanlp/fuel/app/classes/controller/nebraska.php on line 178
+ERROR - 2018-04-09 14:41:17 --> Parsing Error - syntax error, unexpected ':' in /s/bach/c/under/ewanlp/fuel/app/classes/controller/nebraska.php on line 119
+ERROR - 2018-04-09 15:53:03 --> Warning - mysqli::mysqli(): (08004/1040): Too many connections in /s/bach/c/under/ewanlp/fuel/core/classes/database/mysqli/connection.php on line 131
