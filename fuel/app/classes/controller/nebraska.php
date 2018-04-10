@@ -2,6 +2,7 @@
 use Model\Dest;
 use Model\User;
 use Model\Comments;
+use Model\Cart;
 class Controller_Nebraska extends Controller
 {
     public function action_index() {
@@ -66,18 +67,18 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
+    
+    
     public function action_cart($username){
       $session = Session::instance();
       $layout = View::forge('nebraska/cart');
       $nav = View::forge('nebraska/nav');
-
       $ads = User::find_by('admin', 1);
       $adUsers = array();
       foreach($ads as $a){
         array_push($adUsers, $a->email);
       }
       $layout->set_safe('adUsers',$adUsers);
-
       $layout->set_safe('username',$username);
       $entry = User::query()->where('username', '=', $username)->get_one()->to_array();
       $email = $entry['email'];
@@ -97,23 +98,19 @@ class Controller_Nebraska extends Controller
         }
       }
       $layout->set_safe('dNames',$dNames);
-
       $nav->set_safe('dests',$dests);
       $layout->set_safe('dests',$dests);
       $layout->set_safe('carts',$carts);
-
       $username = $session->get('username');
       $admin = $session->get('admin');
       if(isset($username)){
         $nav->set_safe('admin', $admin);
         $nav->set_safe('username',$username);
-
       }
       $footer = View::forge('nebraska/footer');
       $layout->nav = Response::forge($nav);
       $layout->footer = Response::forge($footer);
       return $layout;
-
     }
 
     public function action_view($id)
@@ -121,43 +118,38 @@ class Controller_Nebraska extends Controller
       $session = Session::instance();
       $layout = View::forge('nebraska/layoutfull');
       $nav = View::forge('nebraska/nav');
-      $comment = View::forge('nebraska/comment');
-
-      $dests = Dest::find('all');
-      $nav->set_safe('dests',$dests);
-
-      $dest = Dest::find($id);
-      $layout->set_safe('dest', $dest);
-  
+      $desT = Dest::find('all');
+      $nav->set_safe('dests',$desT);
+      $destination = Dest::find($id);
+      $layout->set_safe('destination', $destination);
       //contains all comments for this dest
       $com = Comments::find('all', array('where' => array(array('dId',$id))));
-      $comment->set_safe('comment', $com);
-      
+      $layout->set_safe('comment', $com);
       $username = $session->get('username');
+      $query = "SELECT * FROM users where userName = :username";
+      $result = DB::query($query)->bind('username', $username)->execute();
+      $result->as_array();
+      $user = $result[0];
+      $uId = $user['id'];
+      $layout->set_safe('user', $user);
       $admin = $session->get('admin');
       if(isset($username)){
         $nav->set_safe('admin', $admin);
         $layout->set_safe('username',$username);
         $nav->set_safe('username',$username);
-        $comment->set_safe('username',$username);
       }
       $footer = View::forge('nebraska/footer');
       $layout->nav = Response::forge($nav);
-      $layout->comment = Response::forge($comment);
       $layout->footer = Response::forge($footer);
       if (isset($_POST['cSub'])){
         //start of user table info
-
         //start of destination table info
         $destID = Input::post('destId');
         $destName = Input::post('destName');
-
         //start of comment table info
         $deleted = 0; //default 0 (false, meaning it should be displayed(has not been deleted))
         $commentText = Input::post('commentText');
-
         $comment = new Comments();
-
         $comment->userId= $uId;
         $comment->userName = $username;
         $comment->destName = $destName;
@@ -165,7 +157,6 @@ class Controller_Nebraska extends Controller
         $comment->deleted = $deleted; //if the comment has been deleted by an admin, should not be dsiplayed if 1
         $comment->postTime = date('Y-m-d H:i:s');
         $comment->dId = $destID;
-
         $comment->save();
         $content = View::forge('nebraska/success');
         $status = 'success';
@@ -174,7 +165,6 @@ class Controller_Nebraska extends Controller
       }
       if(isset($_POST['addDestt'])){
         $admins = Input::post('admins');
-
         $destID = Input::post('destId');
         $cart = new Cart();
         $cart->dId = $destID;
@@ -186,9 +176,9 @@ class Controller_Nebraska extends Controller
         $content -> set_safe('status',$status);
         return $content;
       }
-
       return $layout;
 }
+
 
     public function action_allDest(){
       $session = Session::instance();
