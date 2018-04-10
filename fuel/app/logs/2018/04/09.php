@@ -28,3 +28,11 @@ ERROR - 2018-04-09 20:25:36 --> Compile Error - Can't use function return value 
 ERROR - 2018-04-09 20:28:52 --> Parsing Error - syntax error, unexpected '{' in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 231
 ERROR - 2018-04-09 20:31:26 --> Compile Error - Can't use function return value in write context in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 235
 ERROR - 2018-04-09 20:56:35 --> Error - No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag? in /s/bach/e/under/sabrinaw/fuel/vendor/fuelphp/upload/src/Upload.php on line 92
+ERROR - 2018-04-09 21:14:18 --> Parsing Error - syntax error, unexpected 'class' (T_CLASS), expecting ',' or ';' in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 6
+ERROR - 2018-04-09 21:15:29 --> Notice - Undefined variable: destination in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 48
+ERROR - 2018-04-09 21:18:30 --> Notice - Undefined variable: dests in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 48
+ERROR - 2018-04-09 21:21:33 --> Warning - mysqli::mysqli(): (HY000/1040): Too many connections in /s/bach/e/under/sabrinaw/fuel/core/classes/database/mysqli/connection.php on line 131
+ERROR - 2018-04-09 21:21:33 --> Warning - mysqli::mysqli(): (HY000/1040): Too many connections in /s/bach/e/under/sabrinaw/fuel/core/classes/database/mysqli/connection.php on line 131
+ERROR - 2018-04-09 21:21:33 --> Warning - mysqli::mysqli(): (HY000/1040): Too many connections in /s/bach/e/under/sabrinaw/fuel/core/classes/database/mysqli/connection.php on line 131
+ERROR - 2018-04-09 21:21:33 --> Warning - mysqli::mysqli(): (08004/1040): Too many connections in /s/bach/e/under/sabrinaw/fuel/core/classes/database/mysqli/connection.php on line 131
+ERROR - 2018-04-09 21:21:33 --> Warning - mysqli::mysqli(): (08004/1040): Too many connections in /s/bach/e/under/sabrinaw/fuel/core/classes/database/mysqli/connection.php on line 131

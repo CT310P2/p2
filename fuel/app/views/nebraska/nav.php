@@ -36,11 +36,11 @@
                 <a class="btn btn-outline-success my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/addDest'); ?>"> Add Destination </button>
             <?php } ?>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Logout</a>
+             <a class="btn btn-outline-secondary my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/cart/'.$username); ?>">Cart</a>
         <?php } else {?>
           <a class="btn btn-outline-warning my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/newUser'); ?>"> Register </button>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/login'); ?>" >Login</a>
         <?php } ?>
-      <button class="btn btn-outline-secondary my-2 my-sm-0">Cart</button>
     </div>
   </div>
 </nav>
