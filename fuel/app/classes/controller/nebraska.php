@@ -66,6 +66,55 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
+    public function action_cart($username){
+      $session = Session::instance();
+      $layout = View::forge('nebraska/cart');
+      $nav = View::forge('nebraska/nav');
+
+      $ads = User::find_by('admin', 1);
+      $adUsers = array();
+      foreach($ads as $a){
+        array_push($adUsers, $a->email);
+      }
+      $layout->set_safe('adUsers',$adUsers);
+
+      $layout->set_safe('username',$username);
+      $entry = User::query()->where('username', '=', $username)->get_one()->to_array();
+      $email = $entry['email'];
+      $layout->set_safe('email',$email);
+      $dests = Dest::find('all');
+      //returns an object with all usernames
+      $carts = Cart::find_by('userName',$username);
+      $dId = array(); //array with all dId's that need to be printed
+      $dNames = array(); //array with all the destination names that need to be printed
+      foreach ($carts as $c){
+        array_push($dId, $c->dId);
+      }
+      foreach ($dId as $d){ //store all destinations
+        $query = Dest::find_by('id', $d);
+        foreach($query as $q){
+          array_push($dNames, $q->name);
+        }
+      }
+      $layout->set_safe('dNames',$dNames);
+
+      $nav->set_safe('dests',$dests);
+      $layout->set_safe('dests',$dests);
+      $layout->set_safe('carts',$carts);
+
+      $username = $session->get('username');
+      $admin = $session->get('admin');
+      if(isset($username)){
+        $nav->set_safe('admin', $admin);
+        $nav->set_safe('username',$username);
+
+      }
+      $footer = View::forge('nebraska/footer');
+      $layout->nav = Response::forge($nav);
+      $layout->footer = Response::forge($footer);
+      return $layout;
+
+    }
 
     public function action_view($id)
 {
@@ -96,6 +145,48 @@ class Controller_Nebraska extends Controller
       $layout->nav = Response::forge($nav);
       $layout->comment = Response::forge($comment);
       $layout->footer = Response::forge($footer);
+      if (isset($_POST['cSub'])){
+        //start of user table info
+
+        //start of destination table info
+        $destID = Input::post('destId');
+        $destName = Input::post('destName');
+
+        //start of comment table info
+        $deleted = 0; //default 0 (false, meaning it should be displayed(has not been deleted))
+        $commentText = Input::post('commentText');
+
+        $comment = new Comments();
+
+        $comment->userId= $uId;
+        $comment->userName = $username;
+        $comment->destName = $destName;
+        $comment->commentText = $commentText;
+        $comment->deleted = $deleted; //if the comment has been deleted by an admin, should not be dsiplayed if 1
+        $comment->postTime = date('Y-m-d H:i:s');
+        $comment->dId = $destID;
+
+        $comment->save();
+        $content = View::forge('nebraska/success');
+        $status = 'success';
+        $content -> set_safe('status',$status);
+        return $content;
+      }
+      if(isset($_POST['addDestt'])){
+        $admins = Input::post('admins');
+
+        $destID = Input::post('destId');
+        $cart = new Cart();
+        $cart->dId = $destID;
+        $cart->uId = $uId;
+        $cart->userName = $username;
+        $cart->save();
+        $content = View::forge('nebraska/success');
+        $status = 'success';
+        $content -> set_safe('status',$status);
+        return $content;
+      }
+
       return $layout;
 }
 

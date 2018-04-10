@@ -15,20 +15,27 @@ if (isset($_POST['op'])) {
   $name = $username;
   $subject = $_POST['destName']." Order";
   $dest = $_POST['destName'];
-  $content = "Thank you for your order of the ".$dest." brochure. It will ship to your shortly!";
+  $content = "Thank you for your order of the ".$dest." brochure. It will ship to you shortly!";
 
   mail($sendTo, $subject, $content);
+
+  foreach($adUsers as $a){
+    $sendTo = $a;
+    $subject = $_POST['destName']." Order";
+    $dest = $_POST['destName'];
+    $content = "Notification: ".$dest."s brochure has been ordered.";
+
+    mail($sendTo, $subject, $content);
+  }
+
+  header("Location: http://www.cs.colostate.edu/~ewanlp/ct310/index.php/nebraska/index");
+  exit();
 }
 ?>
 <!-- Start of the navigation bar-->
 <?=$nav; ?>
 
 <br /><br /><br /><br /><br />
-<div class="row">
-  <div class="col">
-
-  </div>
-</div>
 <div class="container">
   <div class="jumbotron">
     <h1 class="display-4 text-center">Your Cart</h1>
@@ -44,7 +51,7 @@ if (isset($_POST['op'])) {
                 <a type="button" class="btn btn-success btn-lg btn-block" href="<?=Uri::create('index.php/nebraska/'.$username); ?>"><?=$dn; ?></a>
             </div>
             <div class="col-auto">
-              <button type="submit" name="email" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#em">Order</button>
+              <button type="submit" name="email" class="btn btn-primary btn-lg btn-block">Order</button>
             </div>
           </div>
         </form>

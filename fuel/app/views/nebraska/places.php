@@ -22,7 +22,7 @@
           <img class="card-img-top" src="./../../img/zoo.jpg" alt="Card image cap" height="180" width="255">
           <div class="card-body">
             <h5 class="card-title">Henry Doorly Zoo and Aquarium</h5>
-            <p class="card-text">One of the world's best zoo's with some of the largest, wildest, exhibits!</p>
+            <p class="card-text">One of the world's best zoos with some of the largest, wildest, exhibits!</p>
           </div>
           <div class="card-footer">
             <small class="text-muted"><a href="<?=Uri::create('index.php/nebraska/view/10'); ?>" class="btn btn-success">Learn More</a></small>
