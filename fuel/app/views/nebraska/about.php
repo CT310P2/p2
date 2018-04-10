@@ -12,37 +12,33 @@
 
 <!-- Start of the navigation bar-->
 <?=$nav; ?>
+<div class="container text-center">
+    <div class="row align-items-center">
+        <div class="col">
+            <br><br><br>
+            <div class="card text-center border-danger mb-3">
+                <div class="card-header">
+                    <h2 class="card-title">About Us</h2>
+                    <br />
 
-<br /><br /><br />
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="PR" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <h4 class="card-title" >Luke Ewan</h4>
+                            <p>&#9656; Luke is also studying Computer Science.<br />
+                                &#9656; You can learn more about him from his personal website <a href = "https://www.cs.colostate.edu/~ewanlp"> HERE</a><br /></p>
+                        </div>
+                        <div class="tab-pane fade show active" id="XC" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <h4 class="card-title">Sabrina White</h4>
+                            <p>&#9656; Sabrina is a 3rd year student studying Computer Science.<br />
+                                &#9656; To learn more about him, check out his own personal website <a href = "https://www.cs.colostate.edu/~sabrinaw/north/index.html"> HERE </a> <br /></p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="jumbotron">
-        <h1 class="display-4">A bit about us!</h1>
-        <p class="lead">Just two students doing some programming, ya know. No big deal. Find out more about us below.</p>
-        <hr class="my-4">
-        <div class="card-deck">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Luke Ewan</h5>
-              <p class="card-text">Hey there! My name is Luke, I'm a third year student here at CSU. I am studying Applied Computing Technology after switching from Computer Science. I enjoy being outside and leadership!</p>
-              <p class="card-text"><small class="text-muted"><a href="http://www.cs.colostate.edu/~ewanlp/" target="_blank">My home page</a></small></p>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sabrina White</h5>
-              <p class="card-text">Info about Sabrina goes here.</p>
-              <p class="card-text"><small class="text-muted"><a href="http://www.cs.colostate.edu/~sabrinaw/" target="_blank">My home page</a></small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-
 <div class="container">
   <?= $footer; ?>
 </div>

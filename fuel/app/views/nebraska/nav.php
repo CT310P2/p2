@@ -31,17 +31,16 @@
     <div class="my-2 my-lg-0">
         <?php if(isset($username)) { ?>
             <button class="btn btn-outline-primary my-2 my-sm-0"><?=$username; ?></button>
-            <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#passchange"> Change Password </button>
+            <a class="btn btn-outline-warning my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/changePass'); ?>" >Change Password </button>
             <?php if($admin) { ?>
-                <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal"> Add Destination </button>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/addDest'); ?>"> Add Destination </button>
             <?php } ?>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/logout'); ?>">Logout</a>
-            <a class="btn btn-outline-secondary my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/cart/'.$username); ?>">Cart</a>
         <?php } else {?>
-          <button class="btn btn-outline-warning my-2 my-sm-0" data-toggle="modal" data-target="#exampleModall"> Register </button>
+          <a class="btn btn-outline-warning my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/newUser'); ?>"> Register </button>
             <a class="btn btn-outline-danger my-2 my-sm-0" href="<?=Uri::create('index.php/nebraska/login'); ?>" >Login</a>
         <?php } ?>
-
+      <button class="btn btn-outline-secondary my-2 my-sm-0">Cart</button>
     </div>
   </div>
 </nav>

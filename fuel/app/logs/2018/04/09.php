@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php defined('COREPATH') or exit('No direct script access allowed'); ?>
 
 ERROR - 2018-04-09 14:17:19 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 11
@@ -19,5 +18,13 @@ ERROR - 2018-04-09 15:30:27 --> Parsing Error - syntax error, unexpected '=>' (T
 ERROR - 2018-04-09 15:35:42 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 250
 ERROR - 2018-04-09 15:38:56 --> Notice - Use of undefined constant pass - assumed 'pass' in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 256
 ERROR - 2018-04-09 16:01:58 --> Notice - Undefined variable: name in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 265
-=======
->>>>>>> d49e60fae3e6ef16b60005328052c5c1c67e597d
+ERROR - 2018-04-09 17:09:50 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 11
+ERROR - 2018-04-09 17:10:00 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 11
+ERROR - 2018-04-09 17:17:17 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 11
+ERROR - 2018-04-09 17:18:58 --> Notice - Trying to get property of non-object in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/layoutfull.php on line 11
+ERROR - 2018-04-09 20:07:21 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 260
+ERROR - 2018-04-09 20:15:41 --> Parsing Error - syntax error, unexpected '}' in /s/bach/e/under/sabrinaw/fuel/app/views/nebraska/newUser.php on line 61
+ERROR - 2018-04-09 20:25:36 --> Compile Error - Can't use function return value in write context in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 224
+ERROR - 2018-04-09 20:28:52 --> Parsing Error - syntax error, unexpected '{' in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 231
+ERROR - 2018-04-09 20:31:26 --> Compile Error - Can't use function return value in write context in /s/bach/e/under/sabrinaw/fuel/app/classes/controller/nebraska.php on line 235
+ERROR - 2018-04-09 20:56:35 --> Error - No uploaded files were found. Did you specify "enctype" in your &lt;form&gt; tag? in /s/bach/e/under/sabrinaw/fuel/vendor/fuelphp/upload/src/Upload.php on line 92

@@ -39,30 +39,33 @@
             <div class="col text-center">
                 <br /><br />
                 <div id="formm" class="text-center">
-                   <form method="POST" action="addDest" enctype = "multipart/form-data">
-                <div class="modal-body">
-                    <label for="user">Destination Info</label>
-                    <input type="username" class="form-control" id="userr" placeholder="Destination Name" name="name">
-                    <br />
-                    <input type="username" class="form-control" id="a" placeholder="Image Name" name="imageName">
-                    <br />
-                    <label for="file">Add Image</label>
-                    <input type="file" class="form-control-file" id="b" name="image">
-                    <div class="form-group">
-                      <br />
-                      <label for="over">Description</label>
-                      <textarea class="form-control" id="over" name="overview" placeholder="Add an overview of what this destination is like."></textarea>
-                      <br />
-                      <textarea class="form-control" id="c" name="history" placeholder="What is the historical background of this destination?"></textarea>
-                      <br />
-                      <textarea class="form-control" id="d" name="facts" placeholder="What's something interesting about this place?"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-outline-success my-2 my-sm-0" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Add Destination</button>
-                </div>
-            </form>
+                    <form method="POST" action="changePass">
+                        <div class="card text-center border-danger w-50 mx-auto">
+                            <div class="card-header  text-danger">
+                                <h2>Welcome!</h2>
+                            </div>
+                            <div class="card-body">
+<!--                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <input type="username" class="form-control" aria-describedby="username" placeholder="Username" name="username"/>
+                                    </div>
+                                </div>-->
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <input type="password" class="form-control" aria-describedby="password" placeholder="Old Password" name="oldPass"/>
+                                    </div>
+                                </div>
+								<div class="form-row">
+                                    <div class="form-group col">
+                                        <input type="pass" class="form-control" aria-describedby="emai" placeholder="New Password" name="pass"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="submit" class="btn btn-outline-danger my-2 my-sm-0" name="login" value="login">Change Password</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <br />
             </div>
