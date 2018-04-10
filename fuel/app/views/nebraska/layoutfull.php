@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="card-img-bottom" src="../../../assets/img/<?=$dest->image; ?>" alt="Card image <?=$dest->image; ?>">
+                <img class="card-img-bottom" src="../../../assets/img/<?=$destination->image; ?>" alt="Card image <?=$destination->image; ?>">
             </div>
         </div>
     </div>
