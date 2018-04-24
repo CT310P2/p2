@@ -38,7 +38,7 @@
                   $eid = 'unpop'.$i;
                 }
                 $test = 'unpop'.$i;
-                $url = 'http://www.cs.colostate.edu/~'.$eid.'/ct310/index.php/federation/status';
+                $url = '/~'.$eid.'/ct310/index.php/federation/status';
 
                ?>
                <script>
