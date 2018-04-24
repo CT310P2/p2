@@ -87,4 +87,26 @@ class Controller_Federation extends Controller{
     return $layout;
 
   }
+  public function action_listing(){
+
+    //start of everything for the view
+    $session = Session::instance();
+    $layout = View::forge('federation/listing');
+    $nav = View::forge('federation/nav');
+    $dests = Dest::find('all');
+    $nav->set_safe('dests',$dests);
+    $listdest = array();
+    foreach($dests as $des):
+      $attraction = array(
+        'id' => $des->id ,
+        'name' => $des->name ,
+        'state' => 'NE'
+        );
+      array_push($listdest, $attraction);
+        endforeach;
+    
+    $response = Response::forge(json_encode($listdest));
+    $response->set_header('Content-Type', 'application/json');
+    return $response;
+  }
 }
