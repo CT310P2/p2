@@ -109,4 +109,42 @@ class Controller_Federation extends Controller{
     $response->set_header('Content-Type', 'application/json');
     return $response;
   }
+  public function action_attraction(){
+    $session = Session::instance();
+    $layout = View::forge('federation/attraction');
+    $nav = View::forge('federation/nav');
+    $dests = Dest::find('all');
+    $nav->set_safe('dests',$dests);
+    $listdest = array();
+    //get id url
+    $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+    $lastUriSegment = array_pop($uriSegments);
+    //loop through db destinations
+    foreach($dests as $des):
+    //check last segment in url
+      if($lastUriSegment==($des->id)){
+        $attractionid = array(
+        'id' => $des->id ,
+        'name' => $des->name,
+        'desc' => $des->overview,
+        'state' => 'NE'
+        );
+    //return attraction by id
+        $response = Response::forge(json_encode($attractionid));
+        $response->set_header('Content-Type', 'application/json');
+        return $response;
+      }
+      $attraction = array(
+        'id' => $des->id ,
+        'name' => $des->name ,
+        'desc' => $des->overview,
+        'state' => 'NE'
+        );
+      array_push($listdest, $attraction);
+        endforeach;
+    //return all attractions on $listdest
+    $response = Response::forge(json_encode($listdest));
+    $response->set_header('Content-Type', 'application/json');
+    return $response;
+  }
 }
