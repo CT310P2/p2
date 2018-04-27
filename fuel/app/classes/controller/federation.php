@@ -5,7 +5,7 @@ use Model\Comments;
 use Model\Cart;
 class Controller_Federation extends Controller{
   public function get_status(){
-    $array = array('status' => 'closed');
+    $array = array('status' => 'open');
     $response = Response::forge(json_encode($array));
     $response->set_header('Content-Type', 'application/json');
     return $response;
@@ -104,7 +104,7 @@ class Controller_Federation extends Controller{
         );
       array_push($listdest, $attraction);
         endforeach;
-    
+
     $response = Response::forge(json_encode($listdest));
     $response->set_header('Content-Type', 'application/json');
     return $response;
@@ -146,5 +146,18 @@ class Controller_Federation extends Controller{
     $response = Response::forge(json_encode($listdest));
     $response->set_header('Content-Type', 'application/json');
     return $response;
+  }
+  public function action_attrimage($id){
+
+    //returns the destination with the id passed in the args above
+    $dest = Dest::find('all', array('where' => array(array('id',$id))));
+    
+    foreach($dest as $d){
+      $response = Response::forge(file_get_contents(Asset::get_file($d->image,'img')));
+      $response->set_header('Content-Type', 'image/jpeg');
+      return $response;
+    }
+
+
   }
 }
