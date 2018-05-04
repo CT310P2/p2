@@ -97,17 +97,22 @@ class Controller_Federation extends Controller{
     $nav->set_safe('dests',$dests);
     $listdest = array();
     foreach($dests as $des):
-      $attraction = array(
-        'id' => $des->id ,
-        'name' => $des->name ,
-        'state' => 'NE'
-        );
-      array_push($listdest, $attraction);
-        endforeach;
+    $attraction = array(
+      'id' => $des->id ,
+      'name' => $des->name ,
+      'state' => 'NE'
+    );
+    array_push($listdest, $attraction);
+    endforeach;
 
     $response = Response::forge(json_encode($listdest));
     $response->set_header('Content-Type', 'application/json');
-    return $response;
+    $layout->set_safe('resp', $response);
+
+    $footer = View::forge('federation/footer');
+    $layout->nav = Response::forge($nav);
+    $layout->footer = Response::forge($footer);
+    return $layout;
   }
   public function action_attraction(){
     $session = Session::instance();
@@ -151,7 +156,7 @@ class Controller_Federation extends Controller{
 
     //returns the destination with the id passed in the args above
     $dest = Dest::find('all', array('where' => array(array('id',$id))));
-    
+
     foreach($dest as $d){
       $response = Response::forge(file_get_contents(Asset::get_file($d->image,'img')));
       $response->set_header('Content-Type', 'image/jpeg');
@@ -161,3 +166,4 @@ class Controller_Federation extends Controller{
 
   }
 }
+
