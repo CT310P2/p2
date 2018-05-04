@@ -88,7 +88,6 @@ class Controller_Federation extends Controller{
 
   }
   public function action_listing(){
-
     //start of everything for the view
     $session = Session::instance();
     $layout = View::forge('federation/listing');
@@ -97,22 +96,17 @@ class Controller_Federation extends Controller{
     $nav->set_safe('dests',$dests);
     $listdest = array();
     foreach($dests as $des):
-    $attraction = array(
-      'id' => $des->id ,
-      'name' => $des->name ,
-      'state' => 'NE'
-    );
-    array_push($listdest, $attraction);
+      $attraction = array(
+        'id' => $des->id ,
+        'name' => $des->name ,
+        'state' => 'NE'
+      );
+      array_push($listdest, $attraction);
     endforeach;
-
+    
     $response = Response::forge(json_encode($listdest));
     $response->set_header('Content-Type', 'application/json');
-    $layout->set_safe('resp', $response);
-
-    $footer = View::forge('federation/footer');
-    $layout->nav = Response::forge($nav);
-    $layout->footer = Response::forge($footer);
-    return $layout;
+    return $response;
   }
   public function action_attraction(){
     $session = Session::instance();
@@ -166,4 +160,3 @@ class Controller_Federation extends Controller{
 
   }
 }
-
