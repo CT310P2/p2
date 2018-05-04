@@ -6,7 +6,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title>Nebraska Home Page</title>
 </head>
 <body>
@@ -16,7 +16,61 @@
 
 <!-- The start of the changing images -->
   <div class="container">
-    <?=$destss; ?>
+    <br /><br /><br /><br /><br />
+
+    <div class="row">
+      <table class="table table-hover table-sm table-bordered">
+        <thead>
+        <tr>
+          <th>Team ID</th>
+          <th>Team Name</th>
+          <th>Location ID</th>
+          <th>Location Name</th>
+          <th>State</th>
+        </tr>
+        </thead>
+        <tbody id="bodyy">
+      <?php for($i = 0; $i < count($allData); $i++){ ?>
+          <?php
+            $temp = $allData[$i];
+            $id = $temp['team'];
+            $short = $temp['nameShort'];
+            $long = $temp['nameLong'];
+            $eid = $temp['eid'];
+            if ($eid === ''){
+              $eid = 'unpop'.$i;
+            }
+            $test = 'unpop'.$i;
+            $url = '/~'.$eid.'/ct310/index.php/federation/listing';
+           ?>
+           <script>
+             $.ajax({
+              type: 'POST',
+              url: '<?=$url; ?>',
+              dataType: 'json',
+                 success: function (data) {
+                     $.each(data, function(index, element) {
+                         var team = $('<td>').text(<?=$id; ?>);
+                         var Name = $('<td>').text("<?=$long; ?>");
+                         var first = $('<td>').text(element.id);
+                         var second = $('<td>').append("<div><a href=\'http://cs.colostate.edu/~ewanlp/ct310/index.php/nebraska/all/" + '<?=$eid; ?>' + "/" + element.id +"\'" + ">" + element.name + "</a></div>");
+                         var third = $('<td>').text(element.state);
+                         var whole = $('<tr>').append(team).append(Name).append(first).append(second).append(third);
+                         $('#bodyy').append(whole);
+                     });
+            }});
+             
+             $.ajax({
+                type: 'POST',
+                 url: 'allDest.php',
+                 data: { }
+             });
+             
+           </script>
+    <?php } ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 <br /><br /><br />
