@@ -67,8 +67,8 @@ class Controller_Nebraska extends Controller
         $layout->footer = Response::forge($footer);
         return $layout;
     }
-    
-    
+
+
     public function action_cart($username){
       $session = Session::instance();
       $layout = View::forge('nebraska/cart');
@@ -180,11 +180,68 @@ class Controller_Nebraska extends Controller
 }
 
 
+
+
     public function action_allDest(){
+
+      $json_string = '[{"team":"1","nameShort":"rft","nameLong":"Roam Free Travel","eid":"smbrels"},
+{"team":"2","nameShort":"Pinon","nameLong":"Pinon Mountain Ventures","eid":"chapmanc"},
+{"team":"2","nameShort":"Pinon","nameLong":"Pinon Mountain Ventures","eid":"trohnke"},
+{"team":"3","nameShort":"Bond ","nameLong":"James Bond","eid":"crgold"},
+{"team":"3","nameShort":"Bond ","nameLong":"James Bond","eid":"myou"},
+{"team":"4","nameShort":"KLICK","nameLong":"Kenny & Logan Interstate Commuting Kings","eid":"lvreed"},
+{"team":"4","nameShort":"KLICK","nameLong":"Kenny & Logan Interstate Commuting Kings","eid":"nguyenkd"},
+{"team":"5","nameShort":"Canoe","nameLong":"Definitely Not Kayak.com LLC","eid":"jsearl"},
+{"team":"5","nameShort":"Canoe","nameLong":"Definitely Not Kayak.com LLC","eid":"isaach"},
+{"team":"6","nameShort":"Y&L Travel Co.","nameLong":"Yasmin&Lettia Travel Company","eid":"lwilson1"},
+{"team":"6","nameShort":"Y&L Travel Co.","nameLong":"Yasmin&Lettia Travel Company","eid":"yalshafa"},
+{"team":"7","nameShort":"NKTA","nameLong":"North Korea Travel Agency","eid":"tsciano"},
+{"team":"7","nameShort":"NKTA","nameLong":"North Korea Travel Agency","eid":"tjkinsey"},
+{"team":"8","nameShort":"travelinc","nameLong":"Travelling trips Incorporated","eid":"sionf"},
+{"team":"8","nameShort":"travelinc","nameLong":"Travelling trips Incorporated","eid":"brandok"},
+{"team":"9","nameShort":"HPTS","nameLong":"Han Paczosa Travel Solutions","eid":"mpaczosa"},
+{"team":"9","nameShort":"","nameLong":"","eid":""},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"sabrinaw"},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"acastain"},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"stefanou"},
+{"team":"11","nameShort":"Aggies","nameLong":"Old Aggies","eid":"ewanlp"},
+{"team":"11","nameShort":"Aggies","nameLong":"Old Aggies","eid":"zachrule"},
+{"team":"12","nameShort":"CT-PO","nameLong":"Adventures of CT-PO","eid":"nbarouxi"},
+{"team":"12","nameShort":"CT-PO","nameLong":"Adventures of CT-PO","eid":"gaddvi"},
+{"team":"13","nameShort":"Bubba","nameLong":"Bubba’s Roadtrip Co.","eid":"char8330"},
+{"team":"13","nameShort":"Bubba","nameLong":"Bubba’s Roadtrip Co.","eid":"anthos"},
+{"team":"14","nameShort":"Traveler2","nameLong":"Traveler CT3102","eid":"jtperea"},
+{"team":"14","nameShort":"Traveler3","nameLong":"Traveler CT3103","eid":"ehharris"},
+{"team":"15","nameShort":"ncState","nameLong":"NorthCarolinaState","eid":"bhoyt"},
+{"team":"15","nameShort":"ncState","nameLong":"NorthCarolinaState","eid":"royerj"},
+{"team":"16","nameShort":"Travel Website","nameLong":"Courtney and Jon’s Travel Website","eid":"cntorres"},
+{"team":"16","nameShort":"Travel Website","nameLong":"Courtney and Jon’s Travel Website","eid":"jonhunt"},
+{"team":"17","nameShort":"MTD","nameLong":"Montana Travel Destinations","eid":"msfales"},
+{"team":"17","nameShort":"MTD","nameLong":"Montana Travel Destination","eid":"johnylam"},
+{"team":"18","nameShort":"MEMN","nameLong":"MaineMinnesota","eid":"bommarit"},
+{"team":"18","nameShort":"MEMN","nameLong":"MaineMinnesota","eid":"wjntx"},
+{"team":"19","nameShort":"Travel","nameLong":"US Travel Center","eid":"condesce"},
+{"team":"19","nameShort":"Travel","nameLong":"US Travel Center","eid":"whiteaj"},
+{"team":"20","nameShort":"TAD","nameLong":"TourAdvisor","eid":"novus"},
+{"team":"20","nameShort":"TAD","nameLong":"TourAdvisor","eid":"mirrorad"},
+{"team":"21","nameShort":"A&J travels","nameLong":"A&J traveling through America","eid":"jwelch31"},
+{"team":"21","nameShort":"A&J travels","nameLong":"A&J traveling through America","eid":"abchawla"},
+{"team":"22","nameShort":"PCA","nameLong":"People’s Choice Attractions","eid":"sbhuju"},
+{"team":"22","nameShort":"PCA","nameLong":"People’s Choice Attractions","eid":"jewett"}]';
+
+      $js = (Format::forge($json_string, 'json')->to_array());
+      $allData = array();
+      foreach($js as $singleLine){
+        $allData[] = $singleLine;
+      }
+
+
+
       $session = Session::instance();
       $layout = View::forge('nebraska/allDest');
       $nav = View::forge('nebraska/nav');
 
+      $layout->set_safe('allData', $allData);
       $destss = View::forge('nebraska/dests');
       $dests = Dest::find('all');
 
@@ -205,6 +262,90 @@ class Controller_Nebraska extends Controller
       $layout->footer = Response::forge($footer);
       return $layout;
     }
+  
+  public function action_all($eid, $id){
+    $json_string = '[{"team":"1","nameShort":"rft","nameLong":"Roam Free Travel","eid":"smbrels"},
+{"team":"2","nameShort":"Pinon","nameLong":"Pinon Mountain Ventures","eid":"chapmanc"},
+{"team":"2","nameShort":"Pinon","nameLong":"Pinon Mountain Ventures","eid":"trohnke"},
+{"team":"3","nameShort":"Bond ","nameLong":"James Bond","eid":"crgold"},
+{"team":"3","nameShort":"Bond ","nameLong":"James Bond","eid":"myou"},
+{"team":"4","nameShort":"KLICK","nameLong":"Kenny & Logan Interstate Commuting Kings","eid":"lvreed"},
+{"team":"4","nameShort":"KLICK","nameLong":"Kenny & Logan Interstate Commuting Kings","eid":"nguyenkd"},
+{"team":"5","nameShort":"Canoe","nameLong":"Definitely Not Kayak.com LLC","eid":"jsearl"},
+{"team":"5","nameShort":"Canoe","nameLong":"Definitely Not Kayak.com LLC","eid":"isaach"},
+{"team":"6","nameShort":"Y&L Travel Co.","nameLong":"Yasmin&Lettia Travel Company","eid":"lwilson1"},
+{"team":"6","nameShort":"Y&L Travel Co.","nameLong":"Yasmin&Lettia Travel Company","eid":"yalshafa"},
+{"team":"7","nameShort":"NKTA","nameLong":"North Korea Travel Agency","eid":"tsciano"},
+{"team":"7","nameShort":"NKTA","nameLong":"North Korea Travel Agency","eid":"tjkinsey"},
+{"team":"8","nameShort":"travelinc","nameLong":"Travelling trips Incorporated","eid":"sionf"},
+{"team":"8","nameShort":"travelinc","nameLong":"Travelling trips Incorporated","eid":"brandok"},
+{"team":"9","nameShort":"HPTS","nameLong":"Han Paczosa Travel Solutions","eid":"mpaczosa"},
+{"team":"9","nameShort":"","nameLong":"","eid":""},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"sabrinaw"},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"acastain"},
+{"team":"10","nameShort":"Explore","nameLong":"Explore The States","eid":"stefanou"},
+{"team":"11","nameShort":"Aggies","nameLong":"Old Aggies","eid":"ewanlp"},
+{"team":"11","nameShort":"Aggies","nameLong":"Old Aggies","eid":"zachrule"},
+{"team":"12","nameShort":"CT-PO","nameLong":"Adventures of CT-PO","eid":"nbarouxi"},
+{"team":"12","nameShort":"CT-PO","nameLong":"Adventures of CT-PO","eid":"gaddvi"},
+{"team":"13","nameShort":"Bubba","nameLong":"Bubba’s Roadtrip Co.","eid":"char8330"},
+{"team":"13","nameShort":"Bubba","nameLong":"Bubba’s Roadtrip Co.","eid":"anthos"},
+{"team":"14","nameShort":"Traveler2","nameLong":"Traveler CT3102","eid":"jtperea"},
+{"team":"14","nameShort":"Traveler3","nameLong":"Traveler CT3103","eid":"ehharris"},
+{"team":"15","nameShort":"ncState","nameLong":"NorthCarolinaState","eid":"bhoyt"},
+{"team":"15","nameShort":"ncState","nameLong":"NorthCarolinaState","eid":"royerj"},
+{"team":"16","nameShort":"Travel Website","nameLong":"Courtney and Jon’s Travel Website","eid":"cntorres"},
+{"team":"16","nameShort":"Travel Website","nameLong":"Courtney and Jon’s Travel Website","eid":"jonhunt"},
+{"team":"17","nameShort":"MTD","nameLong":"Montana Travel Destinations","eid":"msfales"},
+{"team":"17","nameShort":"MTD","nameLong":"Montana Travel Destination","eid":"johnylam"},
+{"team":"18","nameShort":"MEMN","nameLong":"MaineMinnesota","eid":"bommarit"},
+{"team":"18","nameShort":"MEMN","nameLong":"MaineMinnesota","eid":"wjntx"},
+{"team":"19","nameShort":"Travel","nameLong":"US Travel Center","eid":"condesce"},
+{"team":"19","nameShort":"Travel","nameLong":"US Travel Center","eid":"whiteaj"},
+{"team":"20","nameShort":"TAD","nameLong":"TourAdvisor","eid":"novus"},
+{"team":"20","nameShort":"TAD","nameLong":"TourAdvisor","eid":"mirrorad"},
+{"team":"21","nameShort":"A&J travels","nameLong":"A&J traveling through America","eid":"jwelch31"},
+{"team":"21","nameShort":"A&J travels","nameLong":"A&J traveling through America","eid":"abchawla"},
+{"team":"22","nameShort":"PCA","nameLong":"People’s Choice Attractions","eid":"sbhuju"},
+{"team":"22","nameShort":"PCA","nameLong":"People’s Choice Attractions","eid":"jewett"}]';
+    $js = (Format::forge($json_string, 'json')->to_array());
+    $allData = array();
+    foreach($js as $singleLine){
+      $allData[] = $singleLine;
+    }
+    
+    
+    
+    $session = Session::instance();
+    $layout = View::forge('nebraska/all');
+    $nav = View::forge('nebraska/nav');
+    $layout->set_safe('allData', $allData);
+    $destss = View::forge('nebraska/dests');
+    $dests = Dest::find('all');
+    $destination = Dest::find($id);
+  
+    $layout->set_safe('id', $id);
+    $layout->set_safe('eid', $eid);
+    
+    $destss->set_safe('destss', $dests);
+    $nav->set_safe('dests',$dests);
+    $username = $session->get('username');
+    $admin = $session->get('admin');
+    if(isset($username)){
+      $nav->set_safe('admin', $admin);
+      $nav->set_safe('username',$username);
+      $destss->set_safe('admin', $admin);
+      $destss->set_safe('username',$username);
+      $layout->set_safe('username',$username);
+    }
+    
+    
+    $footer = View::forge('nebraska/footer');
+    $layout->nav = Response::forge($nav);
+    $layout->destss = Response::forge($destss);
+    $layout->footer = Response::forge($footer);
+    return $layout;
+  }
 
     public function action_login(){
         $session = Session::instance();
@@ -233,18 +374,18 @@ class Controller_Nebraska extends Controller
         $username = $session->get('username'); //name of current user adding comment
         $user = User::find($username); //has all user data!
         $uId = $user->id;
-        
+
         //start of destination table info
         $dest = Dest::find($id); //the current destination, can access all dest info (name, image, etc.)
         $destID = $dest->id;
         $destName = $dest->name;
-        
+
         //start of comment table info
         $deleted = 0; //default 0 (false, meaning it should be displayed(has not been deleted))
         $commentText = Input::post('commentText');
-        
+
         $comment = new Comments();
-        
+
         $comment->userId = $uId;
         $comment->userName = $username;
         $comment->destName = $destName;
@@ -252,7 +393,7 @@ class Controller_Nebraska extends Controller
         $comment->postTime = date();
         $comment->deleted = $deleted; //if the comment has been deleted by an admin, should not be dsiplayed if 1
         $comment->postTime = $destID;
-  
+
         $comment->save();
         $content = View::forge('nebraska/success');
         $status = 'success';
@@ -288,15 +429,15 @@ class Controller_Nebraska extends Controller
         'randomize' => true,
         'ext_whitelist' => array('img', 'jpg', 'jpeg', 'gif', 'png'),
         );
-        
+
         Upload::process($config);
-        
+
         if (Upload::is_valid()){
             Upload::save();
             }
 
         $imagepath = Upload::get_files()[0]['saved_as'];
-        
+
         $dest->name = $name;
         $dest->image = $imagepath;
         $dest->imageName = $imageName;
@@ -331,15 +472,15 @@ class Controller_Nebraska extends Controller
       $email = Input::post('email');
       if (Input::post('admin')){ $admin = 1; }else {$admin = 0;}
       $pass = md5(Input::post('pass'));
-      
+
       $user = new User();
       $user->userName = $name;
       $user->admin = $admin;
       $user->userPass = $pass;
       $user->email = $email;
-      
+
       $user->save();
-      
+
       $content = View::forge('nebraska/success');
       $status = 'success';
       $content -> set_safe('status',$status);
@@ -347,7 +488,7 @@ class Controller_Nebraska extends Controller
       }
       return $layout;
     }
-    
+
     public function action_changePass(){
       $session = Session::instance();
       $layout = View::forge('nebraska/changePass');
@@ -373,12 +514,12 @@ class Controller_Nebraska extends Controller
         $user = User::query()->where('userName', '=', $username)->get_one();
 
         if((isset($username) && isset($old_password)) && (($username === $user->userName) && md5($old_password) === $user->userPass)){
-        
+
         $user->userPass = md5($newPass);
         $user->save();
-        
+
         }
-      
+
       $content = View::forge('nebraska/success');
       $status = 'success';
       $content -> set_safe('status',$status);
@@ -386,34 +527,34 @@ class Controller_Nebraska extends Controller
       }
       return $layout;
     }
-    
+
     public function action_forgotpass(){
       $emailName = Input::post('email');
-      
+
       $entry = User::query()->where('email', '=', $emailName)->get_one();
-      
+
       $new_password = Str::random('alpha', 10);
-      
+
       $email = Email::forge();
       $email->from('sabrinaw@rams.colostate.edu', 'Sabrina White');
       $email->to($entry->email, $entry->userName);
       $email->subject('New Password');
       $email->body('Your new temporary password is '. $new_password. '. When you log back in, make sure to change your password');
       $email->send();
-      
+
       $pass = md5($new_password);
       $entry->userPass = $pass;
       $entry->save();
-      
+
       $content = View::forge('nebraska/success');
       $status = 'success';
       $content -> set_safe('status',$status);
       return $content;
     }
-    
-    
-    
-    
+
+
+
+
     public function action_check(){
         $username = Input::post('username');
         $password = Input::post('password');
@@ -425,7 +566,7 @@ class Controller_Nebraska extends Controller
         if((isset($username) && isset($password)) && (($username === $user['userName'] || $username === $user['email']) && md5($password) === $user['userPass'])) { //tries to sign the user in, and send them to home page
             Session::create();
             Session::set('username', $user['userName']);
-            
+
             Session::set('admin', $admin);
             Session::set('userid', 12345);
             $content = View::forge('nebraska/success');
